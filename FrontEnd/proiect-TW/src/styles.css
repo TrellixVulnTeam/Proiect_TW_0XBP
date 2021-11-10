@@ -2,3 +2,66 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.cdk-overlay-container{
+    z-index: 9999 !important;
+}
+  
+.cdk-global-overlay-wrapper{
+    z-index:1000 !important;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
+.mat-menu-content{
+    left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+  
+.mat-menu-size{
+    height: 530px;
+    width: 250px;
+    border-style: solid;
+    border-width: 4px;
+}
+
+.mat-modify-size{
+    height: 240px;
+    width: 250px;
+    border-style: solid;
+    border-width: 4px;
+}
+
+.formAllign{
+    float: right;
+    clear:both;
+    width: 300px;
+}
+
+.passAllign{
+    width: 260px;
+}
+
+.center {
+    margin-left: 250%;
+}
+
+.button-text{
+    font-size: 20px;
+}
+
+.formAllign{
+    float: right;
+    clear:both;
+    width: 300px;
+  }
+  
+.newAccount{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}

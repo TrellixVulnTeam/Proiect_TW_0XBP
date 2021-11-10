@@ -1,10 +1,223 @@
-<p>home works!</p>
-
 <!-- toolbar -->
+<mat-toolbar>
+    <button mat-fab color="warn" [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+    <mat-menu #menu="matMenu" class="mat-menu-size">
+        <button mat-stroked-button color="primary" class="mat-menu-content">Imbracaminte</button>
+        <span>&nbsp;</span>
+        <button mat-stroked-button color="primary" class="mat-menu-content">Jucarii</button>
+        <span>&nbsp;</span>
+        <button mat-stroked-button color="primary" class="mat-menu-content">Echipamente sportive</button>
+        <span>&nbsp;</span>
+        <button mat-stroked-button color="primary" class="mat-menu-content">Carti</button>
+        <span>&nbsp;</span>
+        <button mat-stroked-button color="primary" class="mat-menu-content">Gaming</button>
+        <span>&nbsp;</span>
+        <button mat-stroked-button color="primary" class="mat-menu-content">Telefoane</button>
+        <span>&nbsp;</span>
+        <button mat-stroked-button color="primary" class="mat-menu-content">Laptopuri</button>
+    </mat-menu>
 
+    <form [formGroup]="searchForm">
+        <div class="center">
+            <label for="searched">
+                <button mat-icon-button (click) = "onSearch()">
+                    <mat-icon>search</mat-icon>
+                </button>
+            </label>
+            <input searched="searched" type="text" formControlName="searched" placeholder="Cauta">
+        </div>
+    </form>    
 
+    <button mat-button [matMenuTriggerFor]="modify" class="button-text" *ngIf="admin">Administreaza</button>
+    <mat-menu #modify="matMenu" class="mat-modify-size">
+        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="triggerModal(modalDataAdd)">Adauga produs</button>
+        <ng-template #modalDataAdd let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title title button-text" id="modal-basic-title">Adauga un produs</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true"><mat-icon class="icons">exit_to_app</mat-icon></span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="addForm">
+                <div>
+                    <label for="id">
+                        Id
+                        <mat-icon class="idIcon">remember_me</mat-icon>
+                    </label>
+                    <input id="Id" type="number" min="1" formControlName="id" class="formAllign">
+                </div>
+                <div>
+                    <label for="name">
+                        Nume
+                        <mat-icon class="nameIcon">badge</mat-icon>
+                    </label>
+                    <input name="name" type="text" formControlName="name" class="formAllign">
+                </div>
+                <div>
+                    <label for="price">
+                        Pret
+                        <mat-icon class="priceIcon">attach_money</mat-icon>
+                    </label>
+                    <input price="price" type="number" min="0" formControlName="price" class="formAllign">
+                </div>
+                <div>
+                    <label for="inStock">
+                        Produse in stoc
+                        <mat-icon class="inStockIcon">inventory</mat-icon>
+                    </label>
+                    <input inStock="inStock" type="number" min="0" formControlName="inStocks" class="formAllign">
+                </div>
+                <div>
+                    <label for="manufacturer">
+                        Producator
+                        <mat-icon class="manufacturerIcon">store</mat-icon>
+                    </label>
+                    <input manufacturer="manufacturer" type="text" formControlName="manufacturer" class="formAllign">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class = "btn" type = "submit" (click) = "onAdd(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
+            </div>
+          </ng-template>
+        <span>&nbsp;</span>
+        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="triggerModal(modalDataUpdate)">Modifica produs</button>
+        <ng-template #modalDataUpdate let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title title" id="modal-basic-title">Modifica un produs</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true"><mat-icon class="icons">exit_to_app</mat-icon></span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="updateForm">
+                <div>
+                    <label for="id">
+                        Id
+                        <mat-icon class="idIcon">remember_me</mat-icon>
+                    </label>
+                    <input id="Id" type="number" min="1" formControlName="id" class="formAllign">
+                </div>
+                <div>
+                    <label for="name">
+                        Nume
+                        <mat-icon class="nameIcon">badge</mat-icon>
+                    </label>
+                    <input name="name" type="text" formControlName="name" class="formAllign">
+                </div>
+                <div>
+                    <label for="price">
+                        Pret
+                        <mat-icon class="priceIcon">attach_money</mat-icon>
+                    </label>
+                    <input price="price" type="number" min="0" formControlName="price" class="formAllign">
+                </div>
+                <div>
+                    <label for="inStock">
+                        Produse in stoc
+                        <mat-icon class="inStockIcon">inventory</mat-icon>
+                    </label>
+                    <input inStock="inStock" type="number" min="0" formControlName="inStocks" class="formAllign">
+                </div>
+                <div>
+                    <label for="manufacturer">
+                        Producator
+                        <mat-icon class="manufacturerIcon">store</mat-icon>
+                    </label>
+                    <input manufacturer="manufacturer" type="text" formControlName="manufacturer" class="formAllign">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class = "btn" type = "submit" (click) = "onUpdate(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
+            </div>
+          </ng-template>
+        <span>&nbsp;</span>
+        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="triggerModal(modalDataDelete)">Sterge produs</button>
+        <ng-template #modalDataDelete let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title title" id="modal-basic-title">Sterge un produs</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true"><mat-icon class="icons">exit_to_app</mat-icon></span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="deleteForm">
+                  <div>
+                    <label for="id">
+                        Id
+                        <mat-icon class="idIcon">remember_me</mat-icon>
+                    </label>
+                    <input id="Id" type="number" min="1" formControlName="id" class="formAllign">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class = "btn" type = "submit" (click) = "onDelete(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
+            </div>
+          </ng-template>
+    </mat-menu>
 
+    <span class="spacer"></span>
+    <button mat-button *ngIf="loggedIn" class="button-text">Profil</button>
+    <span>&nbsp;&nbsp;</span>
 
+    <button mat-fab color="warn" (click)="triggerModal(modalDataLogin)" *ngIf="!loggedIn"><mat-icon>login</mat-icon></button>
+        <ng-template #modalDataLogin let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title title" id="modal-basic-title">Log In</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true"><mat-icon class="icons">exit_to_app</mat-icon></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <mat-form-field appearance="fill">
+                <mat-label>Role</mat-label>
+                    <mat-select (selectionChange)="selectedValue($event)">
+                        <mat-option value="optionCustomer">Customer</mat-option>
+                        <mat-option value="optionAdmin">Admin</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="newAccount">
+                Nu ai cont?
+                <button mat-button class="button-text" (click) = "triggerModal(modalDataCreate)">Creeaza un cont nou</button>
+                <ng-template #modalDataCreate let-modal>
+                    <div class="modal-header">
+                      <h4 class="modal-title title" id="modal-basic-title">Creeaza un cont nou</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true"><mat-icon class="icons">exit_to_app</mat-icon></span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form [formGroup]="newAccountForm">
+                        <div>
+                            <label for="email">
+                                E-mail
+                                <mat-icon class="emailIcon">email</mat-icon>
+                            </label>
+                            <input email="email" type="text" formControlName="email" class="formAllign">
+                        </div>
+                        <div>
+                            <label for="password">
+                                Parola
+                                <mat-icon class="passwordIcon">password</mat-icon>
+                            </label>
+                            <input matInput [type]="hide ? 'password' : 'text'" password="password" formControlName="password" class="passAllign">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button class = "btn" type = "submit" (click) = "onCreate(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
+                    </div>
+                  </ng-template>
+            </div>
+        </ng-template>
+    <button mat-fab color="warn" (click)="onLogout()" *ngIf="loggedIn"><mat-icon>logout</mat-icon></button>
+</mat-toolbar>
 
 
 <!-- produse -->
