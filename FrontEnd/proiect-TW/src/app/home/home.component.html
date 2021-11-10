@@ -160,7 +160,7 @@
     </mat-menu>
 
     <span class="spacer"></span>
-    <button mat-button *ngIf="loggedIn" class="button-text">Profil</button>
+    <button mat-button *ngIf="loggedIn" class="button-text" routerLink="/profile" routerLinkActive="active">Profil</button>
     <span>&nbsp;&nbsp;</span>
 
     <button mat-fab color="warn" (click)="triggerModal(modalDataLogin)" *ngIf="!loggedIn"><mat-icon>login</mat-icon></button>
@@ -218,6 +218,5 @@
         </ng-template>
     <button mat-fab color="warn" (click)="onLogout()" *ngIf="loggedIn"><mat-icon>logout</mat-icon></button>
 </mat-toolbar>
-
 
 <!-- produse -->
