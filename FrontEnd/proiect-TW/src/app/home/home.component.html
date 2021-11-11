@@ -2,19 +2,21 @@
 <mat-toolbar>
     <button mat-fab color="primary" [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
     <mat-menu #menu="matMenu" class="mat-menu-size">
-        <button mat-stroked-button class="mat-menu-content" (click)="onImbracaminte()">Imbracaminte</button>
-        <span>&nbsp;</span>
-        <button mat-stroked-button class="mat-menu-content" (click)="onJucarii()">Jucarii</button>
-        <span>&nbsp;</span>
-        <button mat-stroked-button class="mat-menu-content" (click)="onEchipamente()">Echipamente sportive</button>
-        <span>&nbsp;</span>
-        <button mat-stroked-button class="mat-menu-content" (click)="onCarti()">Carti</button>
-        <span>&nbsp;</span>
-        <button mat-stroked-button class="mat-menu-content" (click)="onGaming()">Gaming</button>
-        <span>&nbsp;</span>
-        <button mat-stroked-button class="mat-menu-content" (click)="onTelefoane()">Telefoane</button>
-        <span>&nbsp;</span>
-        <button mat-stroked-button class="mat-menu-content" (click)="onLaptopuri()">Laptopuri</button>
+      <mat-list>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="onImbracaminte()"><mat-icon>checkroom</mat-icon>    Imbracaminte</button></mat-list-item>
+        <mat-divider class="cart-size"></mat-divider>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="onJucarii()"><mat-icon>toys</mat-icon>    Jucarii</button></mat-list-item>
+        <mat-divider class="cart-size"></mat-divider>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="onEchipamente()"><mat-icon>sports_basketball</mat-icon>    Echipamente sportive</button></mat-list-item>
+        <mat-divider class="cart-size"></mat-divider>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="onCarti()"><mat-icon>book</mat-icon>    Carti</button></mat-list-item>
+        <mat-divider class="cart-size"></mat-divider>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="onGaming()"><mat-icon>sports_esports</mat-icon>    Gaming</button></mat-list-item>
+        <mat-divider class="cart-size"></mat-divider>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="onTelefoane()"><mat-icon>phone_iphone</mat-icon>    Telefoane</button></mat-list-item>
+        <mat-divider class="cart-size"></mat-divider>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="onLaptopuri()"><mat-icon>laptop</mat-icon>    Laptopuri</button></mat-list-item>
+      </mat-list>
     </mat-menu>
 
     <span>&nbsp;&nbsp;</span>
@@ -80,7 +82,8 @@
 
     <button mat-button [matMenuTriggerFor]="modify" class="button-text" *ngIf="showCrud">Administreaza</button>
     <mat-menu #modify="matMenu" class="mat-modify-size">
-        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="triggerModal(modalDataAdd)">Adauga produs</button>
+      <mat-list>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="triggerModal(modalDataAdd)"><mat-icon>add</mat-icon>    Adauga produs</button></mat-list-item>
         <ng-template #modalDataAdd let-modal>
             <div class="modal-header">
               <h4 class="modal-title title button-text" id="modal-basic-title">Adauga un produs</h4>
@@ -131,8 +134,8 @@
               <button class = "btn" type = "submit" (click) = "onAdd(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
             </div>
           </ng-template>
-        <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="triggerModal(modalDataUpdate)">Modifica produs</button>
+        <mat-divider class="cart-size"></mat-divider>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="triggerModal(modalDataUpdate)"><mat-icon>edit</mat-icon>    Modifica produs</button></mat-list-item>
         <ng-template #modalDataUpdate let-modal>
             <div class="modal-header">
               <h4 class="modal-title title" id="modal-basic-title">Modifica un produs</h4>
@@ -183,8 +186,8 @@
               <button class = "btn" type = "submit" (click) = "onUpdate(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
             </div>
           </ng-template>
-        <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="triggerModal(modalDataDelete)">Sterge produs</button>
+        <mat-divider class="cart-size"></mat-divider>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="triggerModal(modalDataDelete)"><mat-icon>delete</mat-icon>    Sterge produs</button></mat-list-item>
         <ng-template #modalDataDelete let-modal>
             <div class="modal-header">
               <h4 class="modal-title title" id="modal-basic-title">Sterge un produs</h4>
@@ -207,6 +210,7 @@
               <button class = "btn" type = "submit" (click) = "onDelete(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
             </div>
           </ng-template>
+        </mat-list>
     </mat-menu>
 
     <span class="spacer"></span>
@@ -329,5 +333,19 @@
         </ng-template>
     <button mat-fab color="primary" (click)="onLogout()" *ngIf="loggedIn"><mat-icon>logout</mat-icon></button>
 </mat-toolbar>
+
+<!-- images -->
+<ngb-carousel *ngIf="images" class="carousel">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper carouselPics">
+      <img [src]="images[0]">
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[1]">
+    </div>
+  </ng-template>
+</ngb-carousel>
 
 <!-- produse -->

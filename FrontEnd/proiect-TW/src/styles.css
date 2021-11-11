@@ -16,23 +16,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mat-menu-content{
-    left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 200px;
     font-size: 17px;
 }
   
 .mat-menu-size{
-    height: 530px;
-    width: 250px;
+    height: 380px;
+    width: 260px;
     border-style: solid;
     border-width: 4px;
 }
 
 .mat-modify-size{
-    height: 240px;
-    width: 250px;
+    height: 200px;
+    width: 260px;
     border-style: solid;
     border-width: 4px;
 }
@@ -69,4 +65,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .cart-size{
     width: 250px;
+}
+
+.carousel{
+    width: 1176px;
+    margin: auto;
+}
+
+.carouselPics{
+    border-color: black;
+    border-width: 2px;
 }

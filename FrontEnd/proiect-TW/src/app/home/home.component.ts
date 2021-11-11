@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
   public receivedCustomer: Customer = new Customer("", "", "", "", "");
   public items: Item[] = [new Item(1, "Bluza", 100, 30, "H&M"), new Item(2, "Tastatura", 250,10, "HyperX"), new Item(3, "Harry Potter", 40, 15, "Arthur")];
   public suma: number = 0;
+  public images: string[] = ['../assets/1.png', '../assets/2.png'];
 
   constructor(
     private formBuilder: FormBuilder,
