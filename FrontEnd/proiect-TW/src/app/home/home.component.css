@@ -41,3 +41,17 @@
 .addressIcon{
     margin-left:90px;
 }
+
+.deleteIcon{
+    margin-right: 5px;
+}
+
+.cartButton{
+    left: 25px;
+    width: 200px;
+    font-size: 20px;
+}
+
+.confirmText{
+    font-size: 20px;
+}

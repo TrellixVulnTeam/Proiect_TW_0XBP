@@ -1,30 +1,80 @@
 <!-- toolbar -->
 <mat-toolbar>
-    <button mat-fab color="warn" [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+    <button mat-fab color="primary" [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
     <mat-menu #menu="matMenu" class="mat-menu-size">
-        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onImbracaminte()">Imbracaminte</button>
+        <button mat-stroked-button class="mat-menu-content" (click)="onImbracaminte()">Imbracaminte</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onJucarii()">Jucarii</button>
+        <button mat-stroked-button class="mat-menu-content" (click)="onJucarii()">Jucarii</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onEchipamente()">Echipamente sportive</button>
+        <button mat-stroked-button class="mat-menu-content" (click)="onEchipamente()">Echipamente sportive</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onCarti()">Carti</button>
+        <button mat-stroked-button class="mat-menu-content" (click)="onCarti()">Carti</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onGaming()">Gaming</button>
+        <button mat-stroked-button class="mat-menu-content" (click)="onGaming()">Gaming</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onTelefoane()">Telefoane</button>
+        <button mat-stroked-button class="mat-menu-content" (click)="onTelefoane()">Telefoane</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onLaptopuri()">Laptopuri</button>
+        <button mat-stroked-button class="mat-menu-content" (click)="onLaptopuri()">Laptopuri</button>
+    </mat-menu>
+
+    <span>&nbsp;&nbsp;</span>
+    <button mat-icon-button [matMenuTriggerFor]="cart"><mat-icon>shopping_cart</mat-icon></button>
+    <mat-menu #cart="matMenu" class="cart-size">
+      {{resetTotal()}}
+      <mat-list class="cart-size">
+        <li *ngFor="let item of items">
+          <mat-list-item>{{item.name}}: {{item.price}} RON
+            <button mat-icon-button><mat-icon class="deleteIcon" (click)="removeCartItem(item)">delete</mat-icon></button>
+          </mat-list-item>
+          <mat-divider class="cart-size"></mat-divider>
+        </li>
+        {{calculateTotal()}}
+        <mat-list-item>Total plata: {{suma}} RON</mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+      <span>&nbsp;&nbsp;</span>
+      <button mat-raised-button class="cartButton" *ngIf="loggedIn" (click)="triggerModal(modalConfirm); resetTotal(); resetCart()">Comanda&nbsp;<mat-icon>payments</mat-icon></button>
+      <ng-template #modalConfirm let-modal>
+        <div class="modal-body confirmText">
+          Comanda a fost plasata
+        </div>
+      </ng-template>
+      <button mat-raised-button class="cartButton" *ngIf="!loggedIn" (click)="triggerModal(modalAddress)">Comanda&nbsp;<mat-icon>payments</mat-icon></button>
+      <ng-template #modalAddress let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title title button-text" id="modal-basic-title">Introduceti adresa de livrare</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true"><mat-icon class="icons">exit_to_app</mat-icon></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="addressForm">
+            <div>
+              <label>
+                Adresa
+                <mat-icon class="addressIcon">location_on</mat-icon>
+              </label>
+              <input type="text" formControlName="address" class="formAllign" [ngClass]="{ 'is-invalid':addressCheck.address.errors }" />
+              <div *ngIf="addressCheck.address.errors" class="invalid-feedback">
+                  <div *ngIf="addressCheck.address.errors.required">Address is required</div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class = "btn" type = "submit" (click) = "triggerModal(modalConfirm); resetTotal(); resetCart()"><mat-icon class="icons">send</mat-icon></button>
+        </div>
+      </ng-template>
     </mat-menu>
 
     <form [formGroup]="searchForm">
         <div class="center">
-            <label for="searched">
-                <button mat-icon-button (click) = "onSearch()">
-                    <mat-icon>search</mat-icon>
-                </button>
-            </label>
             <input searched="searched" type="text" formControlName="searched" placeholder="Cauta">
+            <label for="searched">
+              <button mat-icon-button (click) = "onSearch()">
+                  <mat-icon>search</mat-icon>
+              </button>
+          </label>
         </div>
     </form>    
 
@@ -163,10 +213,10 @@
     <button mat-button *ngIf="loggedIn" class="button-text" routerLink="/profile" routerLinkActive="active">Profil</button>
     <span>&nbsp;&nbsp;</span>
 
-    <button mat-fab color="warn" (click)="triggerModal(modalDataLogin)" *ngIf="!loggedIn"><mat-icon>login</mat-icon></button>
+    <button mat-fab color="primary" (click)="triggerModal(modalDataLogin)" *ngIf="!loggedIn"><mat-icon>login</mat-icon></button>
         <ng-template #modalDataLogin let-modal>
             <div class="modal-header">
-                <h4 class="modal-title title" id="modal-basic-title">Log In</h4>
+                <h4 class="modal-title title" id="modal-basic-title">Intra in cont</h4>
                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                 <span aria-hidden="true"><mat-icon class="icons">exit_to_app</mat-icon></span>
                 </button>
@@ -178,10 +228,10 @@
                     E-mail
                     <mat-icon class="emailIcon">email</mat-icon>
                   </label>
-                  <input type="text" formControlName="email" class="form-control formAllign" [ngClass]="{ 'is-invalid': g.email.errors }" />
-                  <div *ngIf="g.email.errors" class="invalid-feedback">
-                    <div *ngIf="g.email.errors.required">Email is required</div>
-                    <div *ngIf="g.email.errors.email">Email must be a valid email address</div>
+                  <input type="text" formControlName="email" class="formAllign" [ngClass]="{ 'is-invalid': loginCheck.email.errors }" />
+                  <div *ngIf="loginCheck.email.errors" class="invalid-feedback">
+                    <div *ngIf="loginCheck.email.errors.required">Email is required</div>
+                    <div *ngIf="loginCheck.email.errors.email">Email must be a valid email address</div>
                   </div>
                 </div>
                 <div>
@@ -192,9 +242,9 @@
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                   </label>
-                  <input matInput [type]="hide ? 'password' : 'text'" password="password" formControlName="password" class="formAllign" [ngClass]="{ 'is-invalid': g.email.errors }">
-                  <div *ngIf="g.password.errors" class="invalid-feedback">
-                    <div *ngIf="g.password.errors.required">Password is required</div>
+                  <input matInput [type]="hide ? 'password' : 'text'" password="password" formControlName="password" class="formAllign" [ngClass]="{ 'is-invalid': loginCheck.email.errors }">
+                  <div *ngIf="loginCheck.password.errors" class="invalid-feedback">
+                    <div *ngIf="loginCheck.password.errors.required">Password is required</div>
                   </div>
                 </div>
               </form>
@@ -214,34 +264,34 @@
                     </div>
                     <div class="modal-body">
                       <form [formGroup]="newAccountForm">
-                        <div class="form-group">
+                        <div>
                           <label>
                             Prenume
                             <mat-icon class="firstNameIcon">person</mat-icon>
                           </label>
-                          <input type="text" formControlName="firstName" class="form-control formAllign" [ngClass]="{ 'is-invalid':f.firstName.errors }" />
-                          <div *ngIf="f.firstName.errors" class="invalid-feedback">
-                              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                          <input type="text" formControlName="firstName" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.firstName.errors }" />
+                          <div *ngIf="newaccountCheck.firstName.errors" class="invalid-feedback">
+                              <div *ngIf="newaccountCheck.firstName.errors.required">First Name is required</div>
                           </div>
                         </div>
-                        <div class="form-group">
+                        <div>
                             <label>
                               Nume
                               <mat-icon class="lastNameIcon">person</mat-icon>
                             </label>
-                            <input type="text" formControlName="lastName" class="form-control formAllign" [ngClass]="{ 'is-invalid':f.lastName.errors }" />
-                            <div *ngIf="f.lastName.errors" class="invalid-feedback">
-                                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                            <input type="text" formControlName="lastName" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.lastName.errors }" />
+                            <div *ngIf="newaccountCheck.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="newaccountCheck.lastName.errors.required">Last Name is required</div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div>
                           <label>
                             Adresa
                             <mat-icon class="addressIcon">location_on</mat-icon>
                           </label>
-                          <input type="text" formControlName="address" class="form-control formAllign" [ngClass]="{ 'is-invalid':f.address.errors }" />
-                          <div *ngIf="f.address.errors" class="invalid-feedback">
-                              <div *ngIf="f.address.errors.required">Address is required</div>
+                          <input type="text" formControlName="address" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.address.errors }" />
+                          <div *ngIf="newaccountCheck.address.errors" class="invalid-feedback">
+                              <div *ngIf="newaccountCheck.address.errors.required">Address is required</div>
                           </div>
                         </div>
                         <div>
@@ -249,10 +299,10 @@
                                 E-mail
                                 <mat-icon class="emailIcon">email</mat-icon>
                             </label>
-                            <input type="text" formControlName="email" class="form-control formAllign" [ngClass]="{ 'is-invalid': f.email.errors }" />
-                            <div *ngIf="f.email.errors" class="invalid-feedback">
-                              <div *ngIf="f.email.errors.required">Email is required</div>
-                              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            <input type="text" formControlName="email" class="formAllign" [ngClass]="{ 'is-invalid': newaccountCheck.email.errors }" />
+                            <div *ngIf="newaccountCheck.email.errors" class="invalid-feedback">
+                              <div *ngIf="newaccountCheck.email.errors.required">Email is required</div>
+                              <div *ngIf="newaccountCheck.email.errors.email">Email must be a valid email address</div>
                             </div>
                         </div>
                         <div>
@@ -263,10 +313,10 @@
                                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
                             </label>
-                            <input matInput [type]="hide ? 'password' : 'text'" password="password" formControlName="password" class="formAllign" [ngClass]="{ 'is-invalid': f.email.errors }">
-                            <div *ngIf="f.password.errors" class="invalid-feedback">
-                              <div *ngIf="f.password.errors.required">Password is required</div>
-                              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            <input matInput [type]="hide ? 'password' : 'text'" password="password" formControlName="password" class="formAllign" [ngClass]="{ 'is-invalid': newaccountCheck.email.errors }">
+                            <div *ngIf="newaccountCheck.password.errors" class="invalid-feedback">
+                              <div *ngIf="newaccountCheck.password.errors.required">Password is required</div>
+                              <div *ngIf="newaccountCheck.password.errors.minlength">Password must be at least 6 characters</div>
                             </div>
                         </div>
                       </form>
@@ -277,7 +327,7 @@
                   </ng-template>
             </div>
         </ng-template>
-    <button mat-fab color="warn" (click)="onLogout()" *ngIf="loggedIn"><mat-icon>logout</mat-icon></button>
+    <button mat-fab color="primary" (click)="onLogout()" *ngIf="loggedIn"><mat-icon>logout</mat-icon></button>
 </mat-toolbar>
 
 <!-- produse -->

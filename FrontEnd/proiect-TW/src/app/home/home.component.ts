@@ -6,6 +6,7 @@ import { Administrator } from '../classes/administrator';
 import { Customer } from '../classes/customer';
 //import { DataService } from '../services/data.service';
 import { CommunicationService } from '../services/communication.service';
+import { Item } from '../classes/item';
 
 @Component({
   selector: 'app-home',
@@ -34,12 +35,14 @@ export class HomeComponent implements OnInit {
   public customers: Customer[] = [new Customer("Mihaescu", "Sorina", "Cluj", "customer@gmail.com", "customerpass")];
   public receivedAdmin: Administrator = new Administrator("", "", "", "", "");
   public receivedCustomer: Customer = new Customer("", "", "", "", "");
+  public items: Item[] = [new Item(1, "Bluza", 100, 30, "H&M"), new Item(2, "Tastatura", 250,10, "HyperX"), new Item(3, "Harry Potter", 40, 15, "Arthur")];
+  public suma: number = 0;
 
   constructor(
     private formBuilder: FormBuilder,
     private modalService: NgbModal,
     //private dataService: DataService,
-    private communicationService: CommunicationService
+    private communicationService: CommunicationService,
   ) { }
 
   ngOnInit(): void {
@@ -112,6 +115,10 @@ export class HomeComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
+  addressForm = this.formBuilder.group({
+    address: ['', Validators.required]
+  })
+
   onDelete(): void{
     this.id = this.deleteForm.get('id')!.value;
   }
@@ -170,12 +177,16 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  get f() { 
+  get newaccountCheck() { 
     return this.newAccountForm.controls;
   }
 
-  get g() { 
+  get loginCheck() { 
     return this.loginForm.controls;
+  }
+
+  get addressCheck() { 
+    return this.addressForm.controls;
   }
 
   onLogout(){
@@ -214,6 +225,29 @@ export class HomeComponent implements OnInit {
 
   onLaptopuri(){
     this.catalog = "laptopuri";
+  }
+
+  calculateTotal(): void{
+    this.items.forEach(item => {
+      this.suma = this.suma +  item.price;
+    })
+    
+  }
+
+  resetTotal(): void{
+    this.suma = 0;
+  }
+
+  resetCart(): void{
+    this.items = [];
+  }
+
+  removeCartItem(item: Item): void{
+    this.items.forEach((i, index) => {
+      if(i == item){
+        this.items.splice(index, 1);
+      }
+    })
   }
 
 }

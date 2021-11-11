@@ -20,6 +20,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-top: 10px;
     margin-bottom: 10px;
     width: 200px;
+    font-size: 17px;
 }
   
 .mat-menu-size{
@@ -47,7 +48,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .center {
-    margin-left: 250%;
+    margin-left: 245%;
 }
 
 .button-text{
@@ -64,4 +65,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 20px;
     margin-left: 20px;
     margin-bottom: 20px;
+}
+
+.cart-size{
+    width: 250px;
 }
