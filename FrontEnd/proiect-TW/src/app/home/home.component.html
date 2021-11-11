@@ -2,19 +2,19 @@
 <mat-toolbar>
     <button mat-fab color="warn" [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
     <mat-menu #menu="matMenu" class="mat-menu-size">
-        <button mat-stroked-button color="primary" class="mat-menu-content">Imbracaminte</button>
+        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onImbracaminte()">Imbracaminte</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content">Jucarii</button>
+        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onJucarii()">Jucarii</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content">Echipamente sportive</button>
+        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onEchipamente()">Echipamente sportive</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content">Carti</button>
+        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onCarti()">Carti</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content">Gaming</button>
+        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onGaming()">Gaming</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content">Telefoane</button>
+        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onTelefoane()">Telefoane</button>
         <span>&nbsp;</span>
-        <button mat-stroked-button color="primary" class="mat-menu-content">Laptopuri</button>
+        <button mat-stroked-button color="primary" class="mat-menu-content" (click)="onLaptopuri()">Laptopuri</button>
     </mat-menu>
 
     <form [formGroup]="searchForm">
@@ -28,7 +28,7 @@
         </div>
     </form>    
 
-    <button mat-button [matMenuTriggerFor]="modify" class="button-text" *ngIf="admin">Administreaza</button>
+    <button mat-button [matMenuTriggerFor]="modify" class="button-text" *ngIf="showCrud">Administreaza</button>
     <mat-menu #modify="matMenu" class="mat-modify-size">
         <button mat-stroked-button color="primary" class="mat-menu-content" (click)="triggerModal(modalDataAdd)">Adauga produs</button>
         <ng-template #modalDataAdd let-modal>
@@ -172,13 +172,35 @@
                 </button>
             </div>
             <div class="modal-body">
-                <mat-form-field appearance="fill">
-                <mat-label>Role</mat-label>
-                    <mat-select (selectionChange)="selectedValue($event)">
-                        <mat-option value="optionCustomer">Customer</mat-option>
-                        <mat-option value="optionAdmin">Admin</mat-option>
-                    </mat-select>
-                </mat-form-field>
+              <form [formGroup]="loginForm">
+                <div>
+                  <label for="email">
+                    E-mail
+                    <mat-icon class="emailIcon">email</mat-icon>
+                  </label>
+                  <input type="text" formControlName="email" class="form-control formAllign" [ngClass]="{ 'is-invalid': g.email.errors }" />
+                  <div *ngIf="g.email.errors" class="invalid-feedback">
+                    <div *ngIf="g.email.errors.required">Email is required</div>
+                    <div *ngIf="g.email.errors.email">Email must be a valid email address</div>
+                  </div>
+                </div>
+                <div>
+                  <label for="password">
+                    Parola
+                    <mat-icon class="passwordIcon">password</mat-icon>
+                    <button mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </label>
+                  <input matInput [type]="hide ? 'password' : 'text'" password="password" formControlName="password" class="formAllign" [ngClass]="{ 'is-invalid': g.email.errors }">
+                  <div *ngIf="g.password.errors" class="invalid-feedback">
+                    <div *ngIf="g.password.errors.required">Password is required</div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class = "btn" type = "submit" (click) = "onLogin(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
             </div>
             <div class="newAccount">
                 Nu ai cont?
@@ -192,21 +214,60 @@
                     </div>
                     <div class="modal-body">
                       <form [formGroup]="newAccountForm">
+                        <div class="form-group">
+                          <label>
+                            Prenume
+                            <mat-icon class="firstNameIcon">person</mat-icon>
+                          </label>
+                          <input type="text" formControlName="firstName" class="form-control formAllign" [ngClass]="{ 'is-invalid':f.firstName.errors }" />
+                          <div *ngIf="f.firstName.errors" class="invalid-feedback">
+                              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                              Nume
+                              <mat-icon class="lastNameIcon">person</mat-icon>
+                            </label>
+                            <input type="text" formControlName="lastName" class="form-control formAllign" [ngClass]="{ 'is-invalid':f.lastName.errors }" />
+                            <div *ngIf="f.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label>
+                            Adresa
+                            <mat-icon class="addressIcon">location_on</mat-icon>
+                          </label>
+                          <input type="text" formControlName="address" class="form-control formAllign" [ngClass]="{ 'is-invalid':f.address.errors }" />
+                          <div *ngIf="f.address.errors" class="invalid-feedback">
+                              <div *ngIf="f.address.errors.required">Address is required</div>
+                          </div>
+                        </div>
                         <div>
                             <label for="email">
                                 E-mail
                                 <mat-icon class="emailIcon">email</mat-icon>
                             </label>
-                            <input email="email" type="text" formControlName="email" class="formAllign">
+                            <input type="text" formControlName="email" class="form-control formAllign" [ngClass]="{ 'is-invalid': f.email.errors }" />
+                            <div *ngIf="f.email.errors" class="invalid-feedback">
+                              <div *ngIf="f.email.errors.required">Email is required</div>
+                              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
                         </div>
                         <div>
                             <label for="password">
                                 Parola
                                 <mat-icon class="passwordIcon">password</mat-icon>
+                                <button mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
                             </label>
-                            <input matInput [type]="hide ? 'password' : 'text'" password="password" formControlName="password" class="passAllign">
-                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+                            <input matInput [type]="hide ? 'password' : 'text'" password="password" formControlName="password" class="formAllign" [ngClass]="{ 'is-invalid': f.email.errors }">
+                            <div *ngIf="f.password.errors" class="invalid-feedback">
+                              <div *ngIf="f.password.errors.required">Password is required</div>
+                              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
                         </div>
                       </form>
                     </div>
