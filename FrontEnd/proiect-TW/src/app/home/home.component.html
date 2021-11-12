@@ -1,6 +1,6 @@
 <!-- toolbar -->
-<mat-toolbar>
-    <button mat-fab color="primary" [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+<mat-toolbar class="toolbar">
+    <button mat-fab class="menuIcons" [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
     <mat-menu #menu="matMenu" class="mat-menu-size">
       <mat-list>
         <mat-list-item><button mat-button class="mat-menu-content" (click)="onImbracaminte()"><mat-icon>checkroom</mat-icon>    Imbracaminte</button></mat-list-item>
@@ -20,13 +20,14 @@
     </mat-menu>
 
     <span>&nbsp;&nbsp;</span>
-    <button mat-icon-button [matMenuTriggerFor]="cart"><mat-icon>shopping_cart</mat-icon></button>
+    <button mat-icon-button [matMenuTriggerFor]="cart"><mat-icon class="blackColor">shopping_cart</mat-icon></button>
     <mat-menu #cart="matMenu" class="cart-size">
       {{resetTotal()}}
       <mat-list class="cart-size">
         <li *ngFor="let item of items">
-          <mat-list-item>{{item.name}}: {{item.price}} RON
-            <button mat-icon-button><mat-icon class="deleteIcon" (click)="removeCartItem(item)">delete</mat-icon></button>
+          <mat-list-item>
+            <button mat-icon-button><mat-icon (click)="removeCartItem(item)">delete</mat-icon></button>&nbsp;&nbsp;&nbsp;
+            {{item.name}}: {{item.price}} RON
           </mat-list-item>
           <mat-divider class="cart-size"></mat-divider>
         </li>
@@ -71,9 +72,9 @@
 
     <form [formGroup]="searchForm">
         <div class="center">
-            <input searched="searched" type="text" formControlName="searched" placeholder="Cauta">
+            <input searched="searched" type="text" formControlName="searched" placeholder="Cauta" class="search">
             <label for="searched">
-              <button mat-icon-button (click) = "onSearch()">
+              <button mat-icon-button (click) = "onSearch()" class="blackColor">
                   <mat-icon>search</mat-icon>
               </button>
           </label>
@@ -217,7 +218,7 @@
     <button mat-button *ngIf="loggedIn" class="button-text" routerLink="/profile" routerLinkActive="active">Profil</button>
     <span>&nbsp;&nbsp;</span>
 
-    <button mat-fab color="primary" (click)="triggerModal(modalDataLogin)" *ngIf="!loggedIn"><mat-icon>login</mat-icon></button>
+    <button mat-fab class="menuIcons" (click)="triggerModal(modalDataLogin)" *ngIf="!loggedIn"><mat-icon>login</mat-icon></button>
         <ng-template #modalDataLogin let-modal>
             <div class="modal-header">
                 <h4 class="modal-title title" id="modal-basic-title">Intra in cont</h4>
@@ -331,7 +332,7 @@
                   </ng-template>
             </div>
         </ng-template>
-    <button mat-fab color="primary" (click)="onLogout()" *ngIf="loggedIn"><mat-icon>logout</mat-icon></button>
+    <button mat-fab class="menuIcons" (click)="onLogout()" *ngIf="loggedIn"><mat-icon>logout</mat-icon></button>
 </mat-toolbar>
 
 <!-- images -->
@@ -347,5 +348,10 @@
     </div>
   </ng-template>
 </ngb-carousel>
+
+<!-- filter -->
+<div class="sliderPosition"><p>Filtreaza in functie de pret</p>
+  <mat-slider thumbLabel tickInterval="1000" step="50" min="0" max="1000" aria-label="units" class="sliderSize" (input)="valueChanged($event)"></mat-slider>
+</div>
 
 <!-- produse -->

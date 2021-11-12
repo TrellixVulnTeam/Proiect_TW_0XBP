@@ -37,7 +37,8 @@ export class HomeComponent implements OnInit {
   public receivedCustomer: Customer = new Customer("", "", "", "", "");
   public items: Item[] = [new Item(1, "Bluza", 100, 30, "H&M"), new Item(2, "Tastatura", 250,10, "HyperX"), new Item(3, "Harry Potter", 40, 15, "Arthur")];
   public suma: number = 0;
-  public images: string[] = ['../assets/1.png', '../assets/2.png'];
+  public images: string[] = ['../assets/1.jpg', '../assets/2.jpg'];
+  public filter: number = 0;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -249,6 +250,10 @@ export class HomeComponent implements OnInit {
         this.items.splice(index, 1);
       }
     })
+  }
+
+  valueChanged(event: any) {
+    this.filter = event.value;
   }
 
 }

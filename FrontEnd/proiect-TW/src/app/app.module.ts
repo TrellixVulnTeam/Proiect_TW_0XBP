@@ -10,7 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbButtonsModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,7 +38,8 @@ import { ProfileComponent } from './profile/profile.component';
     NgbButtonsModule,
     BrowserAnimationsModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

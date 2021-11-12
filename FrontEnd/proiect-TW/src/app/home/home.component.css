@@ -42,10 +42,6 @@
     margin-left:90px;
 }
 
-.deleteIcon{
-    margin-right: 5px;
-}
-
 .cartButton{
     left: 25px;
     width: 200px;
@@ -54,4 +50,12 @@
 
 .confirmText{
     font-size: 20px;
+}
+
+.menuIcons{
+    background-color: #ffcccc;
+}
+
+.toolbar{
+    color: lightgrey;
 }

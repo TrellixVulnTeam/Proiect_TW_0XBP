@@ -49,6 +49,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .button-text{
     font-size: 20px;
+    color: black;
 }
 
 .formAllign{
@@ -68,11 +69,47 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .carousel{
-    width: 1176px;
+    width: 1200px;
+    height: 230px;
     margin: auto;
 }
 
 .carouselPics{
     border-color: black;
     border-width: 2px;
+}
+
+.blackColor{
+    color: black;
+}
+
+.search{
+    background: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-top-color: transparent;
+    border-bottom-color: black;
+}
+
+.sliderPosition{
+    font-size: 20px;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+
+.sliderSize{
+    width: 230px;
+}
+
+.mat-accent .mat-slider-track-fill {
+    background-color: #ffcccc !important;
+}
+
+.mat-slider-thumb-label {
+    background-color: #ffcccc !important;
+
+}
+
+.mat-slider-thumb {
+    background-color: #ffcccc !important;
 }
