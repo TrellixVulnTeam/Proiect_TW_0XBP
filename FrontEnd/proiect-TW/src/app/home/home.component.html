@@ -26,7 +26,7 @@
     <mat-menu #cart="matMenu" class="cart-size">
       {{resetTotal()}}
       <mat-list class="cart-size">
-        <li *ngFor="let item of items">
+        <li *ngFor="let item of cartItems">
           <mat-list-item>
             <button mat-icon-button><mat-icon (click)="removeCartItem(item)">delete</mat-icon></button>&nbsp;&nbsp;&nbsp;
             {{item.name}}: {{item.price}} RON
@@ -62,6 +62,36 @@
               <input type="text" formControlName="address" class="formAllign" [ngClass]="{ 'is-invalid':addressCheck.address.errors }" />
               <div *ngIf="addressCheck.address.errors" class="invalid-feedback">
                   <div *ngIf="addressCheck.address.errors.required">Address is required</div>
+              </div>
+            </div>
+            <div>
+              <label>
+                Oras
+                <mat-icon class="cityIcon">location_city</mat-icon>
+              </label>
+              <input type="text" formControlName="city" class="formAllign" [ngClass]="{ 'is-invalid':addressCheck.city.errors }" />
+              <div *ngIf="addressCheck.city.errors" class="invalid-feedback">
+                  <div *ngIf="addressCheck.city.errors.required">City is required</div>
+              </div>
+            </div>
+            <div>
+              <label>
+                Tara
+                <mat-icon class="countryIcon">flag</mat-icon>
+              </label>
+              <input type="text" formControlName="country" class="formAllign" [ngClass]="{ 'is-invalid':addressCheck.country.errors }" />
+              <div *ngIf="addressCheck.country.errors" class="invalid-feedback">
+                  <div *ngIf="addressCheck.country.errors.required">Country is required</div>
+              </div>
+            </div>
+            <div>
+              <label>
+                Cod postal
+                <mat-icon class="zipcodeIcon">numbers</mat-icon>
+              </label>
+              <input type="text" formControlName="zipcode" class="formAllign" [ngClass]="{ 'is-invalid':addressCheck.zipcode.errors }" />
+              <div *ngIf="addressCheck.zipcode.errors" class="invalid-feedback">
+                  <div *ngIf="addressCheck.zipcode.errors.required">Zip code is required</div>
               </div>
             </div>
           </form>
@@ -293,12 +323,12 @@
                         </div>
                         <div>
                           <label>
-                            Adresa
-                            <mat-icon class="addressIcon">location_on</mat-icon>
+                            Username
+                            <mat-icon class="usernameIcon">person_pin</mat-icon>
                           </label>
-                          <input type="text" formControlName="address" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.address.errors }" />
-                          <div *ngIf="newaccountCheck.address.errors" class="invalid-feedback">
-                              <div *ngIf="newaccountCheck.address.errors.required">Address is required</div>
+                          <input type="text" formControlName="username" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.username.errors }" />
+                          <div *ngIf="newaccountCheck.username.errors" class="invalid-feedback">
+                              <div *ngIf="newaccountCheck.username.errors.required">Username is required</div>
                           </div>
                         </div>
                         <div>
@@ -325,6 +355,46 @@
                               <div *ngIf="newaccountCheck.password.errors.required">Password is required</div>
                               <div *ngIf="newaccountCheck.password.errors.minlength">Password must be at least 6 characters</div>
                             </div>
+                        </div>
+                        <div>
+                          <label>
+                            Adresa
+                            <mat-icon class="addressIcon">location_on</mat-icon>
+                          </label>
+                          <input type="text" formControlName="address" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.address.errors }" />
+                          <div *ngIf="newaccountCheck.address.errors" class="invalid-feedback">
+                              <div *ngIf="newaccountCheck.address.errors.required">Address is required</div>
+                          </div>
+                        </div>
+                        <div>
+                          <label>
+                            Oras
+                            <mat-icon class="cityIcon">location_city</mat-icon>
+                          </label>
+                          <input type="text" formControlName="city" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.city.errors }" />
+                          <div *ngIf="newaccountCheck.city.errors" class="invalid-feedback">
+                              <div *ngIf="newaccountCheck.city.errors.required">City is required</div>
+                          </div>
+                        </div>
+                        <div>
+                          <label>
+                            Tara
+                            <mat-icon class="countryIcon">flag</mat-icon>
+                          </label>
+                          <input type="text" formControlName="country" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.country.errors }" />
+                          <div *ngIf="newaccountCheck.country.errors" class="invalid-feedback">
+                              <div *ngIf="newaccountCheck.country.errors.required">Country is required</div>
+                          </div>
+                        </div>
+                        <div>
+                          <label>
+                            Cod postal
+                            <mat-icon class="zipcodeIcon">numbers</mat-icon>
+                          </label>
+                          <input type="text" formControlName="zipcode" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.zipcode.errors }" />
+                          <div *ngIf="newaccountCheck.zipcode.errors" class="invalid-feedback">
+                              <div *ngIf="newaccountCheck.zipcode.errors.required">Zip code is required</div>
+                          </div>
                         </div>
                       </form>
                     </div>

@@ -1,15 +1,23 @@
 export class Customer {
-    public firstName: String;
-    public lastName: String;
-    public address: String;
-    public email: String;
-    public password: String;
-    constructor(firstName: string, lastName: string, address: string, email: string, password: string){
+    public firstName: string;
+    public lastName: string;
+    public username: string;
+    public email: string;
+    public password: string;
+    public address: string;
+    public city: string;
+    public country: string;
+    public zipcode: number;
+    constructor(firstName: string, lastName: string, username: string, email: string, password: string, address: string, city: string, country: string, zipcode: number){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
+        this.username = username;
         this.email = email;
         this.password = password;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.zipcode = zipcode
     }
 
     public getEmail(){

@@ -21,21 +21,29 @@ export class HomeComponent implements OnInit {
   public searched: string = "";
   public catalog: string = "";
   public id: number = 0;
+  public type: string = "";
   public price: number = 0;
   public inStock: number = 0;
   public name: string = "";
   public manufacturer: string = "";
+  public url: string = "";
   public email: string = "";
   public password: string = "";
   public firstName: string = "";
   public lastName: string = "";
+  public username: string = '';
   public address: string = "";
+  public city: string = "";
+  public country: string = "";
+  public zipcode: number = 0;
   public hide: boolean = true;
-  public admin: Administrator = new Administrator("Popescu", "Ion", "Timisoara", "admin@gmail.com", "adminpass");
-  public customers: Customer[] = [new Customer("Mihaescu", "Sorina", "Cluj", "customer@gmail.com", "customerpass")];
-  public receivedAdmin: Administrator = new Administrator("", "", "", "", "");
-  public receivedCustomer: Customer = new Customer("", "", "", "", "");
-  public items: Item[] = [new Item(1, "Bluza", 100, 30, "H&M"), new Item(2, "Tastatura", 250,10, "HyperX"), new Item(3, "Harry Potter", 40, 15, "Arthur")];
+  public admin: Administrator = new Administrator("Popescu", "Ion", "PopescuIon23", "admin@gmail.com", "adminpass", "Strada 1", "Timisoara", "Romania", 30166);
+  public customers: Customer[] = [new Customer("Mihaescu", "Sorina", "Sorina00", "customer@gmail.com", "customerpass", "Strada 2", "Cluj", "Romania", 400058)];
+  public receivedAdmin: Administrator = new Administrator("", "", "", "", "", "", "", "", 0);
+  public receivedCustomer: Customer = new Customer("", "", "", "", "", "", "", "", 0);
+  public cartItems: Item[] = [new Item(1, "Imbracaminte", "Bluza", 100, 30, "H&M", "/assets/bluzahm.png"), 
+                        new Item(2, "Gaming", "Tastatura", 250,10, "HyperX", "/assets/hyperx.png"), 
+                        new Item(3, "Carti", "Harry Potter", 40, 15, "Arthur", "/assets/harrypotter.jpeg")];
   public suma: number = 0;
   public images: string[] = ['../assets/1.jpg', '../assets/2.jpg'];
   public filter: number = 0;
@@ -95,30 +103,41 @@ export class HomeComponent implements OnInit {
 
   addForm = this.formBuilder.group({
     id: 1,
+    type: "",
     name: "",
     price: 0,
     inStock: 0,
     manufacturer: "",
+    url: "",
   })
 
   updateForm = this.formBuilder.group({
     id: 1,
+    type: "",
     name: "",
     price: 0,
     inStock: 0,
     manufacturer: "",
+    url: "",
   })
 
   newAccountForm = this.formBuilder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
+    username: ['', Validators.required],
     address: ['', Validators.required],
+    city: ['', Validators.required],
+    country: ['', Validators.required],
+    zipcode: ['', Validators.required],
     email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
   addressForm = this.formBuilder.group({
-    address: ['', Validators.required]
+    address: ['', Validators.required],
+    city: ['', Validators.required],
+    country: ['', Validators.required],
+    zipcode: ['', Validators.required]
   })
 
   onDelete(): void{
@@ -126,19 +145,23 @@ export class HomeComponent implements OnInit {
   }
 
   onAdd(): void{
-    this.id = this.deleteForm.get('id')!.value;
+    this.id = this.addForm.get('id')!.value;
+    this.type = this.addForm.get('type')!.value;
     this.name = this.addForm.get('name')!.value;
     this.price = this.addForm.get('price')!.value;
     this.inStock = this.addForm.get('inStock')!.value;
     this.manufacturer = this.addForm.get('manufacturer')!.value;
+    this.url = this.addForm.get('url')!.value;
   }
 
   onUpdate(): void{
-    this.id = this.deleteForm.get('id')!.value;
-    this.name = this.addForm.get('name')!.value;
-    this.price = this.addForm.get('price')!.value;
-    this.inStock = this.addForm.get('inStock')!.value;
-    this.manufacturer = this.addForm.get('manufacturer')!.value;
+    this.id = this.updateForm.get('id')!.value;
+    this.type = this.updateForm.get('type')!.value;
+    this.name = this.updateForm.get('name')!.value;
+    this.price = this.updateForm.get('price')!.value;
+    this.inStock = this.updateForm.get('inStock')!.value;
+    this.manufacturer = this.updateForm.get('manufacturer')!.value;
+    this.url = this.updateForm.get('url')!.value;
   }
 
   onCreate(){
@@ -149,8 +172,12 @@ export class HomeComponent implements OnInit {
     this.password = this.newAccountForm.get('password')!.value;
     this.firstName = this.newAccountForm.get('firstName')!.value;
     this.lastName = this.newAccountForm.get('lastName')!.value;
+    this.username = this.newAccountForm.get('username')!.value;
     this.address = this.newAccountForm.get('address')!.value;
-    this.customers.push(new Customer(this.firstName, this.lastName, this.address, this.email, this.password));
+    this.city = this.newAccountForm.get('city')!.value;
+    this.country = this.newAccountForm.get('country')!.value;
+    this.zipcode = this.newAccountForm.get('zipcode')!.value;
+    this.customers.push(new Customer(this.firstName, this.lastName, this.username, this.email, this.password, this.address, this.city, this.country, this.zipcode));
   }
 
   onLogin(){
@@ -164,7 +191,7 @@ export class HomeComponent implements OnInit {
       this.role = "admin";
       this.checkRole();
       this.communicationService.sendAdmin(this.admin);
-      this.communicationService.sendCustomer(new Customer("", "", "", "", ""));
+      this.communicationService.sendCustomer(new Customer("", "", "", "", "", "", "", "", Number(null)));
     }
     else{
       this.customers.forEach(customer => {
@@ -173,7 +200,7 @@ export class HomeComponent implements OnInit {
           this.role = "customer";
           this.checkRole();
           this.communicationService.sendCustomer(customer);
-          this.communicationService.sendAdmin(new Administrator("", "", "", "", ""));
+          this.communicationService.sendAdmin(new Administrator("", "", "", "", "", "", "", "", Number(null)));
         }
       });
     }
@@ -230,7 +257,7 @@ export class HomeComponent implements OnInit {
   }
 
   calculateTotal(): void{
-    this.items.forEach(item => {
+    this.cartItems.forEach(item => {
       this.suma = this.suma +  item.price;
     })
     
@@ -241,13 +268,13 @@ export class HomeComponent implements OnInit {
   }
 
   resetCart(): void{
-    this.items = [];
+    this.cartItems = [];
   }
 
   removeCartItem(item: Item): void{
-    this.items.forEach((i, index) => {
+    this.cartItems.forEach((i, index) => {
       if(i == item){
-        this.items.splice(index, 1);
+        this.cartItems.splice(index, 1);
       }
     })
   }

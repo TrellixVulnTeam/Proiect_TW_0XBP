@@ -42,6 +42,22 @@
     margin-left:90px;
 }
 
+.usernameIcon{
+    margin-left: 71px;
+}
+
+.cityIcon{
+    margin-left: 104px;
+}
+
+.countryIcon{
+    margin-left: 107px;
+}
+
+.zipcodeIcon{
+    margin-left: 67px;
+}
+
 .cartButton{
     left: 25px;
     width: 200px;

@@ -25,7 +25,7 @@
                  <div class="col-md-3 px-1">
                    <div class="form-group" class="">
                      <label>Username</label>
-                     <input type="text" class="form-control"  placeholder="Username" value="{{admin.firstName}}{{customer.firstName}}">
+                     <input type="text" class="form-control"  placeholder="Username" value="{{admin.username}}{{customer.username}}">
                    </div>
                  </div>
                  <div class="col-md-4 pl-1">
@@ -53,7 +53,7 @@
                  <div class="col-md-12">
                    <div class="form-group" class="">
                      <label>Adresa</label>
-                     <input type="text" class="form-control" placeholder="Adresa" value="">
+                     <input type="text" class="form-control" placeholder="Adresa" value="{{admin.address}}{{customer.address}}">
                    </div>
                  </div>
                </div>
@@ -61,19 +61,20 @@
                  <div class="col-md-4 pr-1">
                    <div class="form-group" class="">
                      <label>Oras</label>
-                     <input type="text" class="form-control" placeholder="Oras" value="">
+                     <input type="text" class="form-control" placeholder="Oras" value="{{admin.city}}{{customer.city}}">
                    </div>
                  </div>
                  <div class="col-md-4 px-1">
                    <div class="form-group" class="">
                      <label>Tara</label>
-                     <input type="text" class="form-control" placeholder="Tara" value="">
+                     <input type="text" class="form-control" placeholder="Tara" value="{{admin.country}}{{customer.country}}">
                    </div>
                  </div>
                  <div class="col-md-4 pl-1">
                    <div class="form-group" class="">
                      <label>Cod postal</label>
-                     <input type="number" class="form-control" placeholder="Cod postal">
+                     <div *ngIf="admin.zipcode==0"><input type="number" class="form-control" placeholder="Cod postal" value="{{customer.zipcode}}"></div>
+                     <div *ngIf="customer.zipcode==0"><input type="number" class="form-control" placeholder="Cod postal" value="{{admin.zipcode}}"></div>
                    </div>
                  </div>
                </div>
