@@ -131,35 +131,70 @@
                         Id
                         <mat-icon class="idIcon">remember_me</mat-icon>
                     </label>
-                    <input id="Id" type="number" min="1" formControlName="id" class="formAllign">
+                    <input type="number" formControlName="id" class="formAllign" [ngClass]="{ 'is-invalid': addCheck.id.errors }" />
+                    <div *ngIf="addCheck.id.errors" class="invalid-feedback">
+                      <div *ngIf="addCheck.id.errors.required">ID is required</div>
+                    </div>
+                </div>
+                <div>
+                  <label for="type">
+                      Categorie
+                      <mat-icon class="typeIcon">category</mat-icon>
+                  </label>
+                  <input type="text" formControlName="type" class="formAllign" [ngClass]="{ 'is-invalid': addCheck.type.errors }" />
+                  <div *ngIf="addCheck.type.errors" class="invalid-feedback">
+                    <div *ngIf="addCheck.type.errors.required">Type is required</div>
+                  </div>
                 </div>
                 <div>
                     <label for="name">
                         Nume
                         <mat-icon class="nameIcon">badge</mat-icon>
                     </label>
-                    <input name="name" type="text" formControlName="name" class="formAllign">
+                    <input type="text" formControlName="name" class="formAllign" [ngClass]="{ 'is-invalid': addCheck.name.errors }" />
+                    <div *ngIf="addCheck.name.errors" class="invalid-feedback">
+                      <div *ngIf="addCheck.name.errors.required">Name is required</div>
+                    </div>
                 </div>
                 <div>
                     <label for="price">
                         Pret
                         <mat-icon class="priceIcon">attach_money</mat-icon>
                     </label>
-                    <input price="price" type="number" min="0" formControlName="price" class="formAllign">
+                    <input type="number" formControlName="price" class="formAllign" [ngClass]="{ 'is-invalid': addCheck.price.errors }" />
+                    <div *ngIf="addCheck.price.errors" class="invalid-feedback">
+                      <div *ngIf="addCheck.price.errors.required">Price is required</div>
+                    </div>
                 </div>
                 <div>
                     <label for="inStock">
                         Produse in stoc
                         <mat-icon class="inStockIcon">inventory</mat-icon>
                     </label>
-                    <input inStock="inStock" type="number" min="0" formControlName="inStocks" class="formAllign">
+                    <input type="number" formControlName="inStock" class="formAllign" [ngClass]="{ 'is-invalid': addCheck.inStock.errors }" />
+                    <div *ngIf="addCheck.inStock.errors" class="invalid-feedback">
+                      <div *ngIf="addCheck.inStock.errors.required">Stock is required</div>
+                    </div>
                 </div>
                 <div>
                     <label for="manufacturer">
                         Producator
                         <mat-icon class="manufacturerIcon">store</mat-icon>
                     </label>
-                    <input manufacturer="manufacturer" type="text" formControlName="manufacturer" class="formAllign">
+                    <input type="text" formControlName="manufacturer" class="formAllign" [ngClass]="{ 'is-invalid': addCheck.manufacturer.errors }" />
+                    <div *ngIf="addCheck.manufacturer.errors" class="invalid-feedback">
+                      <div *ngIf="addCheck.manufacturer.errors.required">Manufacturer is required</div>
+                    </div>
+                </div>
+                <div>
+                  <label for="url">
+                      URL
+                      <mat-icon class="urlIcon">insert_link</mat-icon>
+                  </label>
+                  <input type="text" formControlName="url" class="formAllign" [ngClass]="{ 'is-invalid': addCheck.url.errors }" />
+                  <div *ngIf="addCheck.url.errors" class="invalid-feedback">
+                    <div *ngIf="addCheck.url.errors.required">URL is required</div>
+                  </div>
                 </div>
               </form>
             </div>
@@ -179,39 +214,74 @@
             <div class="modal-body">
               <form [formGroup]="updateForm">
                 <div>
-                    <label for="id">
-                        Id
-                        <mat-icon class="idIcon">remember_me</mat-icon>
-                    </label>
-                    <input id="Id" type="number" min="1" formControlName="id" class="formAllign">
+                  <label for="id">
+                      Id
+                      <mat-icon class="idIcon">remember_me</mat-icon>
+                  </label>
+                  <input type="number" formControlName="id" class="formAllign" [ngClass]="{ 'is-invalid': updateCheck.id.errors }" />
+                  <div *ngIf="updateCheck.id.errors" class="invalid-feedback">
+                    <div *ngIf="updateCheck.id.errors.required">ID is required</div>
+                  </div>
+                </div>
+                <div>
+                  <label for="type">
+                      Categorie
+                      <mat-icon class="typeIcon">category</mat-icon>
+                  </label>
+                  <input type="text" formControlName="type" class="formAllign" [ngClass]="{ 'is-invalid': updateCheck.type.errors }" />
+                  <div *ngIf="updateCheck.type.errors" class="invalid-feedback">
+                    <div *ngIf="updateCheck.type.errors.required">Type is required</div>
+                  </div>
                 </div>
                 <div>
                     <label for="name">
                         Nume
                         <mat-icon class="nameIcon">badge</mat-icon>
                     </label>
-                    <input name="name" type="text" formControlName="name" class="formAllign">
+                    <input type="text" formControlName="name" class="formAllign" [ngClass]="{ 'is-invalid': updateCheck.name.errors }" />
+                    <div *ngIf="updateCheck.name.errors" class="invalid-feedback">
+                      <div *ngIf="updateCheck.name.errors.required">Name is required</div>
+                    </div>
                 </div>
                 <div>
                     <label for="price">
                         Pret
                         <mat-icon class="priceIcon">attach_money</mat-icon>
                     </label>
-                    <input price="price" type="number" min="0" formControlName="price" class="formAllign">
+                    <input type="number" formControlName="price" class="formAllign" [ngClass]="{ 'is-invalid': updateCheck.price.errors }" />
+                    <div *ngIf="updateCheck.price.errors" class="invalid-feedback">
+                      <div *ngIf="updateCheck.price.errors.required">Price is required</div>
+                    </div>
                 </div>
                 <div>
                     <label for="inStock">
                         Produse in stoc
                         <mat-icon class="inStockIcon">inventory</mat-icon>
                     </label>
-                    <input inStock="inStock" type="number" min="0" formControlName="inStocks" class="formAllign">
+                    <input type="number" formControlName="inStock" class="formAllign" [ngClass]="{ 'is-invalid': updateCheck.inStock.errors }" />
+                    <div *ngIf="updateCheck.inStock.errors" class="invalid-feedback">
+                      <div *ngIf="updateCheck.inStock.errors.required">Stock is required</div>
+                    </div>
                 </div>
                 <div>
                     <label for="manufacturer">
                         Producator
                         <mat-icon class="manufacturerIcon">store</mat-icon>
                     </label>
-                    <input manufacturer="manufacturer" type="text" formControlName="manufacturer" class="formAllign">
+                    <input type="text" formControlName="manufacturer" class="formAllign" [ngClass]="{ 'is-invalid': updateCheck.manufacturer.errors }" />
+                    <div *ngIf="updateCheck.manufacturer.errors" class="invalid-feedback">
+                      <div *ngIf="updateCheck.manufacturer.errors.required">Manufacturer is required</div>
+                    </div>
+                </div>
+                <div>
+                  <label for="url">
+                      URL
+                      <mat-icon class="urlIcon">insert_link</mat-icon>
+                  </label>
+                  <input type="text" formControlName="url" class="formAllign" [ngClass]="{ 'is-invalid': updateCheck.url.errors }" />
+                  <div *ngIf="updateCheck.url.errors" class="invalid-feedback">
+                    <div *ngIf="updateCheck.url.errors.required">URL is required</div>
+                  </div>
                 </div>
               </form>
             </div>
@@ -391,7 +461,7 @@
                             Cod postal
                             <mat-icon class="zipcodeIcon">numbers</mat-icon>
                           </label>
-                          <input type="text" formControlName="zipcode" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.zipcode.errors }" />
+                          <input type="number" formControlName="zipcode" class="formAllign" [ngClass]="{ 'is-invalid':newaccountCheck.zipcode.errors }" />
                           <div *ngIf="newaccountCheck.zipcode.errors" class="invalid-feedback">
                               <div *ngIf="newaccountCheck.zipcode.errors.required">Zip code is required</div>
                           </div>

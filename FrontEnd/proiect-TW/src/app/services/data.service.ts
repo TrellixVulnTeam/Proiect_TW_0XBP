@@ -48,4 +48,9 @@ export class DataService {
     return this.http.post<any>(url, customer);
   }
 
+  updateAccount(email: string, account: Customer): Observable<any>{
+    const url = '${this.baseUrl}/customers/${email}';
+    return this.http.put(url, account);
+  }
+
 }

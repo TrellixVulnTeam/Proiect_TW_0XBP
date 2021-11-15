@@ -47,6 +47,16 @@ export class HomeComponent implements OnInit {
   public suma: number = 0;
   public images: string[] = ['../assets/1.jpg', '../assets/2.jpg'];
   public filter: number = 0;
+  public items: Item[] = [new Item(1, "Imbracaminte", "Bluza", 100, 230, "H&M", "../assets/bluzahm.png"),
+                        new Item(2, "Jucarii", "Puzzle", 15, 130, "D-Toysss", "../assets/puzzle.png"),
+                        new Item(3, "Echipamente sportive", "Paleta tenis", 65, 130, "Sunflex", "../assets/paleta.png"),
+                        new Item(4, "Carti", "Inferno", 25, 230, "DAO", "../assets/inferno.png"),
+                        new Item(5, "Gaming", "Tastatura", 250,210, "HyperX", "../assets/hyperx.png"), 
+                        new Item(6, "Carti", "Harry Potter", 40, 115, "Arthur", "../assets/harrypotter.jpeg"),
+                        new Item(7, "Laptopuri", "VivoBook 15", 3300, 123, "Asus", "../assets/asus.png"),
+                        new Item(8, "Telefoane", "Galaxy S21", 3000, 137, "Samsung", "../assets/samsung.png"),
+                        new Item(9, "Gaming", "Casti", 200, 215, "Logitech", "../assets/logitech.png"),
+                        new Item(10, "Imbracaminte", "Pantaloni", 90, 320, "Bershka", "../assets/pantaloni.png"),];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -102,23 +112,23 @@ export class HomeComponent implements OnInit {
   })
 
   addForm = this.formBuilder.group({
-    id: 1,
-    type: "",
-    name: "",
-    price: 0,
-    inStock: 0,
-    manufacturer: "",
-    url: "",
+    id: ['1', Validators.required],
+    type: ['', Validators.required],
+    name: ['', Validators.required],
+    price: ['0', Validators.required],
+    inStock: ['0', Validators.required],
+    manufacturer: ['', Validators.required],
+    url: ['', Validators.required]
   })
 
   updateForm = this.formBuilder.group({
-    id: 1,
-    type: "",
-    name: "",
-    price: 0,
-    inStock: 0,
-    manufacturer: "",
-    url: "",
+    id: ['1', Validators.required],
+    type: ['', Validators.required],
+    name: ['', Validators.required],
+    price: ['0', Validators.required],
+    inStock: ['0', Validators.required],
+    manufacturer: ['', Validators.required],
+    url: ['', Validators.required]
   })
 
   newAccountForm = this.formBuilder.group({
@@ -142,9 +152,17 @@ export class HomeComponent implements OnInit {
 
   onDelete(): void{
     this.id = this.deleteForm.get('id')!.value;
+    this.items.forEach((i, index) => {
+      if(index == (this.id-1)){
+        this.items.splice(index, 1);
+      }
+    })
   }
 
   onAdd(): void{
+    if (this.addForm.invalid) {
+      return;
+    }
     this.id = this.addForm.get('id')!.value;
     this.type = this.addForm.get('type')!.value;
     this.name = this.addForm.get('name')!.value;
@@ -152,9 +170,13 @@ export class HomeComponent implements OnInit {
     this.inStock = this.addForm.get('inStock')!.value;
     this.manufacturer = this.addForm.get('manufacturer')!.value;
     this.url = this.addForm.get('url')!.value;
+    this.items.push(new Item(this. id, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url));
   }
 
   onUpdate(): void{
+    if (this.updateForm.invalid) {
+      return;
+    }
     this.id = this.updateForm.get('id')!.value;
     this.type = this.updateForm.get('type')!.value;
     this.name = this.updateForm.get('name')!.value;
@@ -162,6 +184,11 @@ export class HomeComponent implements OnInit {
     this.inStock = this.updateForm.get('inStock')!.value;
     this.manufacturer = this.updateForm.get('manufacturer')!.value;
     this.url = this.updateForm.get('url')!.value;
+    this.items.forEach((i, index) => {
+      if(index == (this.id-1)){
+        this.items[this.id-1] = new Item(this. id, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url);
+      }
+    })
   }
 
   onCreate(){
@@ -216,6 +243,14 @@ export class HomeComponent implements OnInit {
 
   get addressCheck() { 
     return this.addressForm.controls;
+  }
+
+  get addCheck() { 
+    return this.addForm.controls;
+  }
+
+  get updateCheck() { 
+    return this.updateForm.controls;
   }
 
   onLogout(){
