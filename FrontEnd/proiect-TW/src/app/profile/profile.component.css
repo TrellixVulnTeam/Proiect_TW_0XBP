@@ -1,0 +1,62 @@
+.title{
+    font-size: 30px;
+ }
+  
+ .idIcon{
+    margin-left: 120px;
+ }
+  
+  
+  
+ .emailIcon{
+    margin-left:94px;
+ }
+  
+ .passwordIcon{
+    margin-left:57px;
+ }
+  
+ .firstNameIcon{
+    margin-left:80px;
+ }
+ .orasIcon{
+    margin-left: 90px;
+ }
+  
+ .lastNameIcon{
+    margin-left:99px;
+ }
+  
+ .addressIcon{
+    margin-left:70px;
+ }
+ .taraIcon{
+    margin-left:99px;
+ }
+ .codIcon{
+   
+ }
+ .likeIcon{
+    margin-left: 1400px;
+ }
+  
+ .deleteIcon{
+    margin-right: 5px;
+ }
+  
+  
+  
+ .confirmText{
+    font-size: 20px;
+ }
+ .toolbar{
+    color: #ffcccc
+ }
+ .menuIcons{
+    background-color: #ffcccc;
+ }
+  
+ .sendIcon{
+   left:90px;
+ }
+ 
