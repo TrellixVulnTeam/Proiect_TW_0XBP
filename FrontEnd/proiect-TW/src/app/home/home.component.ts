@@ -37,9 +37,9 @@ export class HomeComponent implements OnInit {
   public country: string = "";
   public zipcode: number = 0;
   public hide: boolean = true;
-  public admin: Administrator = new Administrator("Popescu", "Ion", "PopescuIon23", "admin@gmail.com", "adminpass", "Strada 1", "Timisoara", "Romania", 30166);
+  public admin: Administrator = new Administrator("Popescu", "Ion", "PopescuIon23", "admin@gmail.com", "adminpass", "Strada 1", "Timisoara", "Romania", 30166, "0721001000", "0256100100");
   public customers: Customer[] = [new Customer("Mihaescu", "Sorina", "Sorina00", "customer@gmail.com", "customerpass", "Strada 2", "Cluj", "Romania", 400058)];
-  public receivedAdmin: Administrator = new Administrator("", "", "", "", "", "", "", "", 0);
+  public receivedAdmin: Administrator = new Administrator("", "", "", "", "", "", "", "", 0, "", "");
   public receivedCustomer: Customer = new Customer("", "", "", "", "", "", "", "", 0);
   public cartItems: Item[] = [new Item(1, "Imbracaminte", "Bluza", 100, 30, "H&M", "/assets/bluzahm.png"), 
                         new Item(2, "Gaming", "Tastatura", 250,10, "HyperX", "/assets/hyperx.png"), 
@@ -218,7 +218,7 @@ export class HomeComponent implements OnInit {
       this.role = "admin";
       this.checkRole();
       this.communicationService.sendAdmin(this.admin);
-      this.communicationService.sendCustomer(new Customer("", "", "", "", "", "", "", "", Number(null)));
+      this.communicationService.sendCustomer(new Customer("", "", "", "", "", "", "", "", 0));
     }
     else{
       this.customers.forEach(customer => {
@@ -227,7 +227,7 @@ export class HomeComponent implements OnInit {
           this.role = "customer";
           this.checkRole();
           this.communicationService.sendCustomer(customer);
-          this.communicationService.sendAdmin(new Administrator("", "", "", "", "", "", "", "", Number(null)));
+          this.communicationService.sendAdmin(new Administrator("", "", "", "", "", "", "", "", 0, "", ""));
         }
       });
     }

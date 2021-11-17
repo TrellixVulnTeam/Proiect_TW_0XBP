@@ -8,7 +8,9 @@ export class Administrator {
     public city: string;
     public country: string;
     public zipcode: number;
-    constructor(firstName: string, lastName: string, username: string, email: string, password: string, address: string, city: string, country: string, zipcode: number){
+    public mobile: string;
+    public landline: string;
+    constructor(firstName: string, lastName: string, username: string, email: string, password: string, address: string, city: string, country: string, zipcode: number, mobile: string, landline: string){
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -17,7 +19,9 @@ export class Administrator {
         this.address = address;
         this.city = city;
         this.country = country;
-        this.zipcode = zipcode
+        this.zipcode = zipcode;
+        this.mobile = mobile;
+        this.landline = landline;
     }
 
     public getEmail(){

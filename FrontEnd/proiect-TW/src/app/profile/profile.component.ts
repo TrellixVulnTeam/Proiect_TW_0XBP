@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
  public city: string = "";
  public country: string = "";
  public zipcode: number = 0;
- public admin: Administrator = new Administrator("", "", "", "", "", "", "", "", 0);
+ public admin: Administrator = new Administrator("", "", "", "", "", "", "", "", 0, "", "");
  public customer: Customer = new Customer("", "", "", "", "", "", "", "", 0);
  // deleteForm: any;
  
