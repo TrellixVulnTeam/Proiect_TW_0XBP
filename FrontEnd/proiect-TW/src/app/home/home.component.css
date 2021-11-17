@@ -83,3 +83,24 @@
 .toolbar{
     color: lightgrey;
 }
+
+.row{
+    color: #ffcccc;
+}
+ 
+.title{
+    color:#ffcccc;
+}
+ 
+.card-body{
+    color:#ffcccc;
+}
+ 
+.btn-block-btn-primary{
+    color:#ffcccc;
+}
+ 
+.card-product-grid{
+    width: 10;
+    height: 10;
+}

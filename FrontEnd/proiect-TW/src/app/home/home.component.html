@@ -490,10 +490,214 @@
     </div>
   </ng-template>
 </ngb-carousel>
+<br>
 
-<!-- filter -->
+<!-- filter 
 <div class="sliderPosition"><p>Filtreaza in functie de pret</p>
   <mat-slider thumbLabel tickInterval="1000" step="50" min="0" max="1000" aria-label="units" class="sliderSize" (input)="valueChanged($event)"></mat-slider>
-</div>
+</div> -->
 
 <!-- produse -->
+<!-- ========================= SECTION PAGETOP ========================= -->
+<!--
+<section class="section-pagetop bg">
+  <div class="container">
+      <h2 class="title-page">Categorie de produse</h2>
+      <nav>
+      <ol class="breadcrumb text-white">
+          <li class="breadcrumb-item"><a href="#">Toate produsele</a></li>
+          <li class="breadcrumb-item"><a href="#">Cele mai cautate</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Acasa</li>
+      </ol>  
+      </nav>
+  </div>  container //  
+  </section> -->
+
+  <!-- ========================= SECTION INTRO END// ========================= -->
+ 
+  <!-- ========================= SECTION CONTENT ========================= -->
+  <section class="section-content padding-y">
+  <div class="container">
+ 
+  <div class="row">
+      <aside class="col-md-3">
+         
+  <div class="card">
+      <article class="filter-group">
+          <header class="card-header">
+              <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+                  <i class="icon-control fa fa-chevron-down"></i>
+                  <h6 class="title">Tipul produsului</h6>
+              </a>
+          </header>
+          <div class="filter-content collapse show" id="collapse_1" style="">
+              <div class="card-body">
+                  <ul class="list-menu">
+                  <li><a href="#">Imbracaminte  </a></li>
+                  <li><a href="#">Jucarii  </a></li>
+                  <li><a href="#">Echipamente sportive  </a></li>
+                  <li><a href="#">Carti </a></li>
+                  <li><a href="#">Gaming</a></li>
+                  <li><a href="#">Telefoane</a></li>
+                  <li><a href="#">Laptopuri</a></li>
+                  </ul>
+ 
+              </div> <!-- card-body.// -->
+          </div>
+      </article> <!-- filter-group  .// -->
+     
+      <!-- filter -->
+      <div class="sliderPosition"><p>Filtreaza in functie de pret</p>
+      <mat-slider thumbLabel tickInterval="1000" step="50" min="0" max="1000" aria-label="units" class="sliderSize" (input)="valueChanged($event)"></mat-slider>
+      </div>
+
+     
+  </div> <!-- card.// -->
+ 
+      </aside> <!-- col.// -->
+      <main class="col-md-9">
+ 
+  <header class="border-bottom mb-4 pb-3">
+          <div class="form-inline">
+              <span class="mr-md-auto"></span>
+              <select class="mr-2 form-control">
+                  <option>De la mai mai mic</option>
+                  <option>De la mai mai mare</option>
+              </select>
+              <div class="btn-group">
+                  <a href="#" class="btn btn-outline-secondary" data-toggle="tooltip" title="List view">
+                      <i class="fa fa-bars"></i></a>
+                  <a href="#" class="btn  btn-outline-secondary active" data-toggle="tooltip" title="Grid view">
+                      <i class="fa fa-th"></i></a>
+              </div>
+          </div>
+  </header><!-- sect-heading -->
+ 
+  <div class="row">
+      <div class="col-md-4">
+          <figure class="card card-product-grid">
+              <div class="img-wrap">
+                  <img src="assets/Crampoane.JPG" style="float:center;width:100px;height:100px;">
+                  <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Vizualivare rapida</a>
+              </div> <!-- img-wrap.// -->
+              <figcaption class="info-wrap">
+                  <div class="fix-height">
+                      <a href="#" class="title">Nike PHANTOM GT2 CLUB DF FG/MG</a>
+                      <div class="price-wrap mt-2">
+                          <span class="price">259,99 Lei</span>
+                      </div> <!-- price-wrap.// -->
+                  </div>
+                  <a href="#" class="btn-block-btn-primary">Adauga in cos </a>  
+              </figcaption>
+          </figure>
+      </div> <!-- col.// -->
+ 
+      <div class="col-md-4">
+          <figure class="card card-product-grid">
+              <div class="img-wrap">
+                  <img src="assets/Consola.JPG" style="float:center;width:100px;height:100px;">
+                  <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Vizualivare rapida</a>
+              </div> <!-- img-wrap.// -->
+              <figcaption class="info-wrap">
+                  <div class="fix-height">
+                      <a href="#" class="title">Consola Microsoft Xbox Series X, 1TB, Negru</a>
+                      <div class="price-wrap mt-2">
+                          <span class="price">4.72900 Lei</span>
+                      </div> <!-- price-wrap.// -->
+                  </div>
+                  <a href="#" class="btn-block-btn-primary">Adauga in cos </a>  
+              </figcaption>
+          </figure>
+      </div> <!-- col.// -->
+ 
+      <div class="col-md-4">
+          <figure class="card card-product-grid">
+              <div class="img-wrap">
+                  <img src="assets/Carte.JPG" style="float:center;width:100px;height:100px;">
+                  <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Vizualivare rapida</a>
+              </div> <!-- img-wrap.// -->
+              <figcaption class="info-wrap">
+                  <div class="fix-height">
+                      <a href="#" class="title">BIBLIOTECA DE LA MIEZUL NOPTII</a>
+                      <div class="price-wrap mt-2">
+                          <span class="price">32 Lei</span>
+                      </div> <!-- price-wrap.// -->
+                  </div>
+                  <a href="#" class="btn-block-btn-primary">Adauga in cos </a>  
+              </figcaption>
+          </figure>
+      </div> <!-- col.// -->
+ 
+      <div class="col-md-4">
+          <figure class="card card-product-grid">
+              <div class="img-wrap">
+                  <img src="assets/Hanorac.JPG" style="float:center;width:100px;height:100px;">
+                  <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Vizualivare rapida</a>
+              </div> <!-- img-wrap.// -->
+              <figcaption class="info-wrap">
+                  <div class="fix-height">
+                      <a href="#" class="title">Bluză de molton 'Adicolor' adidas</a>
+                      <div class="price-wrap mt-2">
+                          <span class="price">147,90 Lei</span>
+                      </div> <!-- price-wrap.// -->
+                  </div>
+                  <a href="#" class="btn-block-btn-primary">Adauga in cos </a>  
+              </figcaption>
+          </figure>
+      </div> <!-- col.// -->
+ 
+      <div class="col-md-4">
+          <figure class="card card-product-grid">
+              <div class="img-wrap">
+                  <img src="assets/laptop.JPG" style="float:center;width:100px;height:100px;">
+                  <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Vizualivare rapida</a>
+              </div> <!-- img-wrap.// -->
+              <figcaption class="info-wrap">
+                  <div class="fix-height">
+                      <a href="#" class="title">Laptop HP 250 G8</a>
+                      <div class="price-wrap mt-2">
+                          <span class="price">1.799 Lei</span>
+                      </div> <!-- price-wrap.// -->
+                  </div>
+                  <a href="#" class="btn-block-btn-primary">Adauga in cos </a>  
+              </figcaption>
+          </figure>
+      </div> <!-- col.// -->
+ 
+      <div class="col-md-4">
+          <figure class="card card-product-grid">
+              <div class="img-wrap">
+                  <img src="assets/Lego.jpg" style="float:center;width:100px;height:100px;">
+                  <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Vizualivare rapida</a>
+              </div> <!-- img-wrap.// -->
+              <figcaption class="info-wrap">
+                  <div class="fix-height">
+                      <a href="#" class="title">Nava de explorare a oceanului 60266 LEGO City</a>
+                      <div class="price-wrap mt-2">
+                          <span class="price">503,99 Lei</span>
+                      </div> <!-- price-wrap.// -->
+                  </div>
+                  <a href="#" class="btn-block-btn-primary">Adauga in cos </a>  
+              </figcaption>
+          </figure>
+      </div> <!-- col.// -->
+ 
+      <div class="col-md-4">
+          <figure class="card card-product-grid">
+              <div class="img-wrap">
+                  <img src="assets/S20.JPG" style="float:center;width:100px;height:100px;">
+                  <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Vizualivare rapida</a>
+              </div> <!-- img-wrap.// -->
+              <figcaption class="info-wrap">
+                  <div class="fix-height">
+                      <a href="#" class="title">Telefon SAMSUNG Galaxy S20</a>
+                      <div class="price-wrap mt-2">
+                          <span class="price">1.899,90 Lei</span>
+                      </div> <!-- price-wrap.// -->
+                  </div>
+                  <a href="#" class="btn-block-btn-primary">Adauga in cos </a>  
+              </figcaption>
+          </figure>
+      </div> <!-- col.// -->
+ 
+  </div> <!-- row end.// -->
