@@ -14,6 +14,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer{
     flex: 1 1 auto;
 }
+.sp{
+    flex: 10 10 auto;
+}
 
 .mat-menu-content{
     font-size: 17px;
@@ -113,3 +116,89 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-slider-thumb {
     background-color: #ffcccc !important;
 }
+.h1{
+    font-size: 10px;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+.text-w {
+    color: #ffcccc !important;
+    background-color: #ffcccc
+    
+  }
+
+  .profile-img .file {
+    /* position: relative; */
+    /* overflow: hidden; */
+    margin-top: -10%;
+    /* width: 70%; */
+    /* border: none; */
+    /* border-radius: 0; */
+    font-size: 16px;
+    /* background: #ffcccc; */
+    margin-bottom: 700px;
+
+  
+    
+}
+/* .margin{
+    margin-bottom: 400px;
+} */
+
+.fond {
+    background-color: #fcfcfc !important;
+ }
+
+.fond2 {
+    background-color:rgb(245, 241, 245);
+    
+
+}
+
+.style1{
+    height: 90px;
+
+}
+.style2{
+        width: 30%;
+        background:#ffcccc;
+        padding: 20px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        margin-left: 2%;
+
+
+
+
+}
+.f2{
+    margin: auto;
+    width: 70%;
+    padding: 5px;
+}
+.f3{
+    color: #ffcccc;
+}
+.f4{
+    width: 35%;
+  padding: 30px 25px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: left;
+  margin-bottom: 25px;
+
+}
+/* ceva */
+.column {
+    padding: 10px;
+    column-count: 2;
+    column-gap: 50px;
+    column-rule: 1px solid lightblue;
+  }
+  
+  .row:after {
+    content: "";
+  display: table;
+  clear: both;
+  height: 50px;
+  }

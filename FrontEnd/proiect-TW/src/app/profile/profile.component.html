@@ -1,109 +1,20 @@
 <!DOCTYPE html>
  
  
-<div class="panel-header panel-header-sm">
+<div class="panel-header panel-header-sm f2 ">
 </div>
  
-<div class="main-content">
+<div class="main-content col-md-30 pl-30 ">
  <div class="card">
-   <div class="card-header">
+   <div class="card-header fond column">
      <h5 class="">
-         <button mat-fab class="menuIcons"  routerLink="/" routerLinkActive="active" (click)="onBack()"><mat-icon>login</mat-icon>
-           <mat-icon>home</mat-icon></button>
-     </h5>
-             <h5 class="title"><b> Profilul meu</b></h5>
-   </div>
-           <div class="card-body">
-             <form>
-               <div class="row">
-                 <div class="col-md-5 pr-0">
-                   <div class="form-group">
-                     <label></label>
-                     <input type="text" class="form-control"  disabled="" placeholder="" value="Adauga o adresa noua">
-                   </div>
-                 </div>
-                 <div class="col-md-3 px-1">
-                   <div class="form-group" class="">
-                     <label>Username</label>
-                     <input type="text" class="form-control"  placeholder="Username" value="{{admin.username}}{{customer.username}}">
-                   </div>
-                 </div>
-                 <div class="col-md-4 pl-1">
-                   <div class="form-group" class="">
-                     <label for="email">Email </label>
-                     <input name="email" id="email" type="email" class="form-control" placeholder="Email" value="{{admin.email}}{{customer.email}}">
-                   </div>
-                 </div>
-               </div>
-               <div class="row">
-                 <div class="col-md-6 pr-1">
-                   <div class="form-group" class="">
-                     <label>Nume</label>
-                     <input type="text" class="form-control" placeholder="Nume" value="{{admin.firstName}}{{customer.firstName}}">
-                   </div>
-                 </div>
-                 <div class="col-md-6 pl-1">
-                   <div class="form-group" class="">
-                     <label>Prenume</label>
-                     <input type="text" class="form-control" placeholder="Prenume" value="{{admin.lastName}}{{customer.lastName}}">
-                   </div>
-                 </div>
-               </div>
-               <div class="row">
-                 <div class="col-md-12">
-                   <div class="form-group" class="">
-                     <label>Adresa</label>
-                     <input type="text" class="form-control" placeholder="Adresa" value="{{admin.address}}{{customer.address}}">
-                   </div>
-                 </div>
-               </div>
-               <div class="row">
-                 <div class="col-md-4 pr-1">
-                   <div class="form-group" class="">
-                     <label>Oras</label>
-                     <input type="text" class="form-control" placeholder="Oras" value="{{admin.city}}{{customer.city}}">
-                   </div>
-                 </div>
-                 <div class="col-md-4 px-1">
-                   <div class="form-group" class="">
-                     <label>Tara</label>
-                     <input type="text" class="form-control" placeholder="Tara" value="{{admin.country}}{{customer.country}}">
-                   </div>
-                 </div>
-                 <div class="col-md-4 pl-1">
-                   <div class="form-group" class="">
-                     <label>Cod postal</label>
-                     <div *ngIf="admin.zipcode==0"><input type="number" class="form-control" placeholder="Cod postal" value="{{customer.zipcode}}"></div>
-                     <div *ngIf="customer.zipcode==0"><input type="number" class="form-control" placeholder="Cod postal" value="{{admin.zipcode}}"></div>
-                   </div>
-                 </div>
-               </div>
- 
-             </form>
-             <!-- <button class="button" type="submit" (click)="onSave()">Salvare date</button> -->
- 
-           </div>
- 
-        
-    
- 
-     </div>
-     <mat-toolbar class="toolbar" class="sendIcos">
-           <ng-template #modalDataLogin let-modal>
-           <div class="modal-footer">
-               <button class = "btn" type = "submit" (click)="onBack(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
-           </div>
-           </ng-template>
-     </mat-toolbar>
-      
-           <mat-toolbar class="sendIcon" >     
-            <button mat-fab class="menuIcons"  type="submit" ><mat-icon >send</mat-icon></button>
-           </mat-toolbar>
-          
-</div>
-<div>
-   <mat-toolbar class="toolbar" class="">
-        <span>&nbsp;&nbsp;</span>
+         <button mat-fab class="menuIcons"  routerLink="/" routerLinkActive="active" (click)="onBack()"><mat-icon>home</mat-icon>
+           </button>
+            <!-- <mat-toolbar class="toolbar" class="fond"> -->
+        <span>&nbsp;&nbsp;</span>        <span>&nbsp;&nbsp;</span>
+        <span>&nbsp;&nbsp;</span>        <span>&nbsp;&nbsp;</span>
+
+
        <button mat-fab class="menuIcons" [matMenuTriggerFor]="menu" ><mat-icon >menu</mat-icon></button>
        <mat-menu #menu="matMenu" class="mat-menu-size" >
          <mat-list>
@@ -118,11 +29,247 @@
            <mat-list-item><button mat-button class="mat-menu-content" (click)="onCard" class="menuIcons"><mat-icon>card_membership</mat-icon>    Card de reducere</button></mat-list-item>
          </mat-list>
         </mat-menu>
-    </mat-toolbar>
+    <!-- </mat-toolbar> -->
+
+     </h5>
+     <div class="h1  "> <h4 style="font-size:50px; color:#ffcccc; margin:1px;"><i>Buna ziua,{{admin.lastName}}{{customer.lastName}}!</i></h4>
+     </div>
+
+
+    <!-- profilepic -->
+    
+    <div class="col-md-8 pl-15 f2 "><br>
+        <div class="profile-img " >
+          <img src="assets/profil.jpeg" class=""  alt="Poza de profil"/>
+            <div class="file " ><br>
+
+                <p>Adauga o fotografie</p><br>
+
+              <input type="file" name="file" class="text-w column" >
+            </div>
+        </div><br>
+        <!-- enfprofilepic-->
+    
+        <br>
+<div class="">
+            <br> <h5 class="title row margin" style="color:#ffcccc"><b> Profilul meu!</b></h5><br>
+            <span class="margin"></span>
+            <div class=""></div>
+              <div class="row">
+            <div class="fond2">
+                <form class="row ">
+                  <div class=" form-group row column f2">
+                    <!-- <label></label> -->
+                    <!-- <span>&nbsp;&nbsp;</span><br> -->
+                    <!-- <div class="col-md-2 pr-10 "> -->
+                      <!-- <div class="form-group row column ">  -->
+                       <p><b>Actualizare informatii personale!</b></p>
+
+                       <!-- <input type="text" class="form-control"  disabled="" placeholder="" value="Adauga o adresa noua!"> -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                  </div>
+                  <!-- <span>&nbsp;&nbsp;</span><br> -->
+
+                    <!-- <div class=""> -->
+                    <div class="col-md-10 pl-12">
+                      <div class=" form-group f2" >
+                       <label ><b>Username:</b></label>
+                       <input type="text" class=" form-control style2 "  placeholder="Username" value="{{admin.username}}{{customer.username}}">
+                      </div>
+                    </div>
+                   <!-- </div>
+                   <div> -->
+                      <div class="col-md-10 pl-12 ">
+                      <div class="form-group f2 " >
+                        <label for="email"><b>Email:</b> </label>
+                        <input name="email" id="email" type="email" class=" form-control style2 " placeholder="Email" value="{{admin.email}}{{customer.email}}">
+                      </div>
+                    </div>
+                  <!-- </div> -->
+                
+                    <div class="col-md-10 p-12 ">
+                      <div class="form-group f2">
+                        <label><b>Nume:</b></label>
+                        <input type="text" class="form-control style2 " placeholder="Nume" value="{{admin.firstName}}{{customer.firstName}}">
+                      </div>
+                    </div>
+                    <div class="col-md-10 pl-12 ">
+                      <div class="form-group f2">
+                        <label><b>Prenume:</b></label>
+                        <input type="text" class="form-control style2 " placeholder="Prenume" value="{{admin.lastName}}{{customer.lastName}}">
+                      </div>
+                    </div>
+                  
+                  
+                    <div class="col-md-10 px-12 ">
+                      <div class="form-group f2">
+                        <label><b>Adresa:</b></label>
+                        <input type="text" class="form-control style2" placeholder="Adresa" value="{{admin.address}}{{customer.address}}">
+                      </div>
+                    </div>
+                
+                    <div class="col-md-10 pr-15">
+                      <div class="form-group f2" >
+                        <label><b>Oras:</b></label>
+                        <input type="text" class="form-control style2 " placeholder="Oras" value="{{admin.city}}{{customer.city}}">
+                      </div>
+                    </div>
+                    <div class="col-md-10 px-17">
+                      <div class="form-group f2">
+                        <label><b>Tara:</b></label>
+                        <input type="text" class="form-control style2 " placeholder="Tara" value="{{admin.country}}{{customer.country}}">
+                      </div>
+                    </div>
+                    <!-- f2 -->
+                    <div class="col-md-10 pr-12">
+                      <div class="form-group f2">
+                        <label><b>Cod postal:</b></label>
+                        <div *ngIf="admin.zipcode==0"><input type="number" class="form-control style2 f2" placeholder="Cod postal" value="{{customer.zipcode}}"></div>
+                        <div *ngIf="customer.zipcode==0"><input type="number" class="form-control style2 f2" placeholder="Cod postal" value="{{admin.zipcode}}"></div>
+                      </div>
+                    </div>
+    
+                    <!-- f1 -->
+                     <div class="col-md-10 px-17">
+                       <div class="form-group f2">
+                         <div *ngIf="customer.zipcode==0"><label><b>Numar de telefon personal:</b></label><input type="" class="form-control style2 f2" placeholder="Numar de telefon personal" value="{{admin.mobile}}"></div>
+                         <div *ngIf="customer.zipcode==0"><label><b>Numar de telefon fix:</b></label><input type="" class="form-control style2 f2" placeholder="Numar de telefon fix:" value="{{admin.landline}}"></div>
+   
+                       </div>
+                     </div>
+                    
+                    <!-- f1 -->
+                </form>
+              
+                <!-- <button class="button" type="submit" (click)="onSave()">Salvare date</button> -->
+    
+              </div>
+              </div>
+            </div>
+            </div>
+<!-- dataaaa -->
+   </div>
+           <!-- <div class="fond2 f2">
+             <form>
+               <div class="row form-group">
+                
+                     <p><b>Actualizare informatii personale!</b></p>
+                
+               </div>
+                 <div>
+                 <div class="col-md-7 pl-12">
+                   <div class="row form-group " >
+                    <label ><b>Username:</b></label>
+                    <input type="text" class=" form-control style2"  placeholder="Username" value="{{admin.username}}{{customer.username}}">
+                   </div>
+                 </div>
+                
+                   <div class="md-7 pl-12 "><br>
+                   <div class="form-group " ><br><br>
+                     <label for="email"><b>Email:</b> </label>
+                     <input name="email" id="email" type="email" class=" form-control style2" placeholder="Email" value="{{admin.email}}{{customer.email}}">
+                   </div>
+                 </div>
+               </div>
+               <div >
+                 <div class="md-7 pr-12 ">
+                   <div class="row form-group" class="">
+                     <label><b>Nume:</b></label>
+                     <input type="text" class="form-control style2" placeholder="Nume" value="{{admin.firstName}}{{customer.firstName}}">
+                   </div>
+                 </div>
+                 <div class="md-7 pl-12 ">
+                   <div class="form-group" class="">
+                     <label><b>Prenume:</b></label>
+                     <input type="text" class="form-control style2" placeholder="Prenume" value="{{admin.lastName}}{{customer.lastName}}">
+                   </div>
+                 </div>
+               </div>
+               <div class="">
+                 <div class="md-6 px-10 ">
+                   <div class="form-group">
+                     <label><b>Adresa:</b></label>
+                     <input type="text" class="form-control style2" placeholder="Adresa" value="{{admin.address}}{{customer.address}}">
+                   </div>
+                 </div>
+               </div>
+               <div class="">
+                 <div class="md-7 pr-12 ">
+                   <div >
+                     <label><b>Oras:</b></label>
+                     <input type="text" class="form-control style2" placeholder="Oras" value="{{admin.city}}{{customer.city}}">
+                   </div>
+                 </div>
+                 <div class="md-7 px-12 ">
+                   <div class="form-group" class="">
+                     <label><b>Tara:</b></label>
+                     <input type="text" class="form-control style2" placeholder="Tara" value="{{admin.country}}{{customer.country}}">
+                   </div>
+                 </div>
+                 <div class="md-7 pl-12 ">
+                   <div class="" class="">
+                     <label><b>Cod postal:</b></label>
+                     <div *ngIf="admin.zipcode==0"><input type="number" class="form-control style2" placeholder="Cod postal" value="{{customer.zipcode}}"></div>
+                     <div *ngIf="customer.zipcode==0"><input type="number" class="form-control style2" placeholder="Cod postal" value="{{admin.zipcode}}"></div>
+                   </div>
+                 </div>
+
+                 
+                  <div class="md-7 pl-12 ">
+                    <div class="form-group" class="">
+                      <div *ngIf="customer.zipcode==0"><label><b>Numar de telefon personal:</b></label><input type="" class="form-control style2" placeholder="Numar de telefon personal" value="{{admin.mobile}}"></div>
+                      <div *ngIf="customer.zipcode==0"><label><b>Numar de telefon fix:</b></label><input type="" class="form-control style2" placeholder="Numar de telefon fix:" value="{{admin.landline}}"></div>
+
+                    </div>
+                  </div>
+                 
+               </div>
+             </form>
+             <button class="button" type="submit" (click)="onSave()">Salvare date</button>
+ 
+           </div>
+ 
+         -->
+          
+ 
+     </div>
+
+     <!-- /dattaaaa -->
+     <mat-toolbar class=" fond" class="sendIcos">
+           <ng-template #modalDataLogin let-modal>
+               <button class = "btn fond" type = "submit" (click)="onBack(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
+           </ng-template>
+     </mat-toolbar>
+      
+           <mat-toolbar class="sendIcon" >     
+            <button mat-fab class="menuIcons"  type="submit" ><mat-icon >send</mat-icon></button>
+           </mat-toolbar>
+          
+
+    <!-- <mat-toolbar class="toolbar" class="fond">
+        <span>&nbsp;&nbsp;</span>
+       <button mat-fab class="menuIcons" [matMenuTriggerFor]="menu" ><mat-icon >menu</mat-icon></button>
+       <mat-menu #menu="matMenu" class="mat-menu-size" >
+         <mat-list>
+           <mat-list-item class="menuIcons"><button mat-mini-fab class="menuIcons" (click)="onFavorite" class="menuIcons"><mat-icon  >favorite_border</mat-icon>    Favorite</button></mat-list-item>
+           <li *ngFor="let item of items">
+               <mat-list-item>
+                 <button mat-icon-button (click)="removeCartItem(item)" class="pinkColor"><mat-icon class="pinkColor">favorite_border</mat-icon></button>&nbsp;&nbsp;&nbsp;
+                 {{item.name}}: {{item.price}} RON
+               </mat-list-item>
+               <mat-divider class="cart-size"></mat-divider>
+             </li>
+           <mat-list-item><button mat-button class="mat-menu-content" (click)="onCard" class="menuIcons"><mat-icon>card_membership</mat-icon>    Card de reducere</button></mat-list-item>
+         </mat-list>
+        </mat-menu>
+    </mat-toolbar>  -->
  
 </div>
+<!-- </div> -->
 <!-- <div class="likeItem">
 <mat-toolbar class="sendIcon"  >
 <button mat-fab class="menuIcons"  ><mat-icon >thumb_up</mat-icon></button><button mat-fab class="menuIcons"  ><mat-icon >thumb_down</mat-icon></button>
 </mat-toolbar>
 </div> -->
+<!-- incer cevaaaa -->

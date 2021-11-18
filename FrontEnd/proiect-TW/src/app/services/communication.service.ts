@@ -9,7 +9,7 @@ import { Administrator } from '../classes/administrator';
 export class CommunicationService {
   public sourceCustomer = new BehaviorSubject<Customer>(new Customer("", "", "", "", "", "", "", "", 0));
   public currentCustomer = this.sourceCustomer.asObservable();
-  public sourceAdmin = new BehaviorSubject<Administrator>(new Administrator("", "", "", "", "", "", "", "", 0));
+  public sourceAdmin = new BehaviorSubject<Administrator>(new Administrator("", "", "", "", "", "", "", "", 0, "", ""));
   public currentAdmin = this.sourceAdmin.asObservable();
 
   constructor() { }
