@@ -7,6 +7,7 @@ import { Customer } from '../classes/customer';
 //import { DataService } from '../services/data.service';
 import { CommunicationService } from '../services/communication.service';
 import { Item } from '../classes/item';
+import { MatPaginator } from '@angular/material/paginator'; 
 
 @Component({
   selector: 'app-home',
@@ -41,9 +42,7 @@ export class HomeComponent implements OnInit {
   public customers: Customer[] = [new Customer("Mihaescu", "Sorina", "Sorina00", "customer@gmail.com", "customerpass", "Strada 2", "Cluj", "Romania", 400058)];
   public receivedAdmin: Administrator = new Administrator("", "", "", "", "", "", "", "", 0, "", "");
   public receivedCustomer: Customer = new Customer("", "", "", "", "", "", "", "", 0);
-  public cartItems: Item[] = [new Item(1, "Imbracaminte", "Bluza", 100, 30, "H&M", "/assets/bluzahm.png"), 
-                        new Item(2, "Gaming", "Tastatura", 250,10, "HyperX", "/assets/hyperx.png"), 
-                        new Item(3, "Carti", "Harry Potter", 40, 15, "Arthur", "/assets/harrypotter.jpeg")];
+  public cartItems: Item[] = [];
   public suma: number = 0;
   public images: string[] = ['../assets/1.jpg', '../assets/2.jpg'];
   public filter: number = 0;
@@ -169,7 +168,7 @@ export class HomeComponent implements OnInit {
     this.price = this.addForm.get('price')!.value;
     this.inStock = this.addForm.get('inStock')!.value;
     this.manufacturer = this.addForm.get('manufacturer')!.value;
-    this.url = this.addForm.get('url')!.value;
+    this.url = "../assets/" + this.addForm.get('url')!.value;
     this.items.push(new Item(this. id, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url));
   }
 
@@ -231,6 +230,10 @@ export class HomeComponent implements OnInit {
         }
       });
     }
+  }
+
+  onBuy(element: Item){
+    this.cartItems.push(element);
   }
 
   get newaccountCheck() { 

@@ -68,7 +68,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .cart-size{
-    width: 250px;
+    width: 300px;
 }
 
 .carousel{
@@ -128,22 +128,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 
   .profile-img .file {
-    /* position: relative; */
-    /* overflow: hidden; */
+
     margin-top: -10%;
-    /* width: 70%; */
-    /* border: none; */
-    /* border-radius: 0; */
+
     font-size: 16px;
-    /* background: #ffcccc; */
     margin-bottom: 700px;
 
   
     
 }
-/* .margin{
+ .margin{
     margin-bottom: 400px;
-} */
+} 
 
 .fond {
     background-color: #fcfcfc !important;
