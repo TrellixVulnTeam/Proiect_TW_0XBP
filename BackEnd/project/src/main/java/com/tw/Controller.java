@@ -17,7 +17,7 @@ public interface Controller{
                     @Content(mediaType = "application/json", schema = @Schema(implementation = Item.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content),
             @ApiResponse(responseCode = "404", description = "No items found", content = @Content) })
-    List<Item> getAllItems();
+    List<Item> getItems();
 
     @Operation(summary = "Delete item by Id")
     @ApiResponses(value = {

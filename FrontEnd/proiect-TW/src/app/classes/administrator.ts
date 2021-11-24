@@ -1,4 +1,5 @@
 export class Administrator {
+    public id: number;
     public firstName: string;
     public lastName: string;
     public username: string;
@@ -10,7 +11,8 @@ export class Administrator {
     public zipcode: number;
     public mobile: string;
     public landline: string;
-    constructor(firstName: string, lastName: string, username: string, email: string, password: string, address: string, city: string, country: string, zipcode: number, mobile: string, landline: string){
+    constructor(id: number, firstName: string, lastName: string, username: string, email: string, password: string, address: string, city: string, country: string, zipcode: number, mobile: string, landline: string){
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

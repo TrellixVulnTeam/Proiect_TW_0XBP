@@ -4,10 +4,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Validators } from '@angular/forms';
 import { Administrator } from '../classes/administrator';
 import { Customer } from '../classes/customer';
-//import { DataService } from '../services/data.service';
+import { DataService } from '../services/data.service';
 import { CommunicationService } from '../services/communication.service';
 import { Item } from '../classes/item';
-import { MatPaginator } from '@angular/material/paginator'; 
 
 @Component({
   selector: 'app-home',
@@ -38,30 +37,21 @@ export class HomeComponent implements OnInit {
   public country: string = "";
   public zipcode: number = 0;
   public hide: boolean = true;
-  public admin: Administrator = new Administrator("Popescu", "Ion", "PopescuIon23", "admin@gmail.com", "adminpass", "Strada 1", "Timisoara", "Romania", 30166, "0721001000", "0256100100");
-  public customers: Customer[] = [new Customer("Mihaescu", "Sorina", "Sorina00", "customer@gmail.com", "customerpass", "Strada 2", "Cluj", "Romania", 400058)];
-  public receivedAdmin: Administrator = new Administrator("", "", "", "", "", "", "", "", 0, "", "");
-  public receivedCustomer: Customer = new Customer("", "", "", "", "", "", "", "", 0);
+  public admin: Administrator = new Administrator(1, "Popescu", "Ion", "PopescuIon23", "admin@gmail.com", "adminpass", "Strada 1", "Timisoara", "Romania", 30166, "0721001000", "0256100100");
+  public customers: Customer[] = [new Customer(1, "Mihaescu", "Sorina", "Sorina00", "customer@gmail.com", "customerpass", "Strada 2", "Cluj", "Romania", 400058)];
+  public receivedAdmin: Administrator = new Administrator(0, "", "", "", "", "", "", "", "", 0, "", "");
+  public receivedCustomer: Customer = new Customer(0, "", "", "", "", "", "", "", "", 0);
   public cartItems: Item[] = [];
   public suma: number = 0;
   public images: string[] = ['../assets/1.jpg', '../assets/2.jpg'];
   public filter: number = 0;
-  public items: Item[] = [new Item(1, "Imbracaminte", "Bluza", 100, 230, "H&M", "../assets/bluzahm.png"),
-                        new Item(2, "Jucarii", "Puzzle", 15, 130, "D-Toysss", "../assets/puzzle.png"),
-                        new Item(3, "Echipamente sportive", "Paleta tenis", 65, 130, "Sunflex", "../assets/paleta.png"),
-                        new Item(4, "Carti", "Inferno", 25, 230, "DAO", "../assets/inferno.png"),
-                        new Item(5, "Gaming", "Tastatura", 250,210, "HyperX", "../assets/hyperx.png"), 
-                        new Item(6, "Carti", "Harry Potter", 40, 115, "Arthur", "../assets/harrypotter.jpeg"),
-                        new Item(7, "Laptopuri", "VivoBook 15", 3300, 123, "Asus", "../assets/asus.png"),
-                        new Item(8, "Telefoane", "Galaxy S21", 3000, 137, "Samsung", "../assets/samsung.png"),
-                        new Item(9, "Gaming", "Casti", 200, 215, "Logitech", "../assets/logitech.png"),
-                        new Item(10, "Imbracaminte", "Pantaloni", 90, 320, "Bershka", "../assets/pantaloni.png"),];
+  public items: Item[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private modalService: NgbModal,
-    //private dataService: DataService,
     private communicationService: CommunicationService,
+    private dataService: DataService
   ) { }
 
   ngOnInit(): void {
@@ -76,6 +66,19 @@ export class HomeComponent implements OnInit {
       this.loggedIn = true;
     }
     this.checkRole();
+    this.getItems();
+  }
+
+  getItems(){
+    this.dataService.getItems().subscribe(
+      (response: Item[]) => {
+        this.items = response;
+      }
+    );
+  }
+
+  loadData(){
+    this.getItems();
   }
 
   triggerModal(content: any) {
@@ -131,6 +134,7 @@ export class HomeComponent implements OnInit {
   })
 
   newAccountForm = this.formBuilder.group({
+    id: ['1', Validators.required],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     username: ['', Validators.required],
@@ -149,13 +153,14 @@ export class HomeComponent implements OnInit {
     zipcode: ['', Validators.required]
   })
 
+  onLoad(){
+    this.loadData();
+  }
+
   onDelete(): void{
     this.id = this.deleteForm.get('id')!.value;
-    this.items.forEach((i, index) => {
-      if(index == (this.id-1)){
-        this.items.splice(index, 1);
-      }
-    })
+    this.dataService.deleteItem(this.id).subscribe();
+    this.getItems();
   }
 
   onAdd(): void{
@@ -169,7 +174,8 @@ export class HomeComponent implements OnInit {
     this.inStock = this.addForm.get('inStock')!.value;
     this.manufacturer = this.addForm.get('manufacturer')!.value;
     this.url = "../assets/" + this.addForm.get('url')!.value;
-    this.items.push(new Item(this. id, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url));
+    this.dataService.addItem(new Item(this. id, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url)).subscribe();
+    this.getItems();
   }
 
   onUpdate(): void{
@@ -183,17 +189,15 @@ export class HomeComponent implements OnInit {
     this.inStock = this.updateForm.get('inStock')!.value;
     this.manufacturer = this.updateForm.get('manufacturer')!.value;
     this.url = this.updateForm.get('url')!.value;
-    this.items.forEach((i, index) => {
-      if(index == (this.id-1)){
-        this.items[this.id-1] = new Item(this. id, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url);
-      }
-    })
+    this.dataService.updateItem(this.id, new Item(this.id, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url)).subscribe();
+    this.getItems();
   }
 
   onCreate(){
     if (this.newAccountForm.invalid) {
       return;
     }
+    this.id = this.newAccountForm.get('id')!.value;
     this.email = this.newAccountForm.get('email')!.value;
     this.password = this.newAccountForm.get('password')!.value;
     this.firstName = this.newAccountForm.get('firstName')!.value;
@@ -203,7 +207,7 @@ export class HomeComponent implements OnInit {
     this.city = this.newAccountForm.get('city')!.value;
     this.country = this.newAccountForm.get('country')!.value;
     this.zipcode = this.newAccountForm.get('zipcode')!.value;
-    this.customers.push(new Customer(this.firstName, this.lastName, this.username, this.email, this.password, this.address, this.city, this.country, this.zipcode));
+    this.customers.push(new Customer(this.id, this.firstName, this.lastName, this.username, this.email, this.password, this.address, this.city, this.country, this.zipcode));
   }
 
   onLogin(){
@@ -217,7 +221,7 @@ export class HomeComponent implements OnInit {
       this.role = "admin";
       this.checkRole();
       this.communicationService.sendAdmin(this.admin);
-      this.communicationService.sendCustomer(new Customer("", "", "", "", "", "", "", "", 0));
+      this.communicationService.sendCustomer(new Customer(0, "", "", "", "", "", "", "", "", 0));
     }
     else{
       this.customers.forEach(customer => {
@@ -226,7 +230,7 @@ export class HomeComponent implements OnInit {
           this.role = "customer";
           this.checkRole();
           this.communicationService.sendCustomer(customer);
-          this.communicationService.sendAdmin(new Administrator("", "", "", "", "", "", "", "", 0, "", ""));
+          this.communicationService.sendAdmin(new Administrator(0, "", "", "", "", "", "", "", "", 0, "", ""));
         }
       });
     }
@@ -274,8 +278,8 @@ export class HomeComponent implements OnInit {
     this.catalog = "jucarii";
   }
 
-  onEchipamente(){
-    this.catalog = "echipamente";
+  onCosmetice(){
+    this.catalog = "cosmetice";
   }
 
   onCarti(){

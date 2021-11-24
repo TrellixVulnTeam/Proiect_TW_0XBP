@@ -6,17 +6,17 @@
     <mat-menu #menu="matMenu" class="mat-menu-size">
       <mat-list>
         <mat-list-item><button mat-button class="mat-menu-content" (click)="onImbracaminte()"><mat-icon>checkroom</mat-icon>    Imbracaminte</button></mat-list-item>
-        <mat-divider class="cart-size"></mat-divider>
+        <mat-divider class="divider-size"></mat-divider>
         <mat-list-item><button mat-button class="mat-menu-content" (click)="onJucarii()"><mat-icon>toys</mat-icon>    Jucarii</button></mat-list-item>
-        <mat-divider class="cart-size"></mat-divider>
-        <mat-list-item><button mat-button class="mat-menu-content" (click)="onEchipamente()"><mat-icon>sports_basketball</mat-icon>    Echipamente sportive</button></mat-list-item>
-        <mat-divider class="cart-size"></mat-divider>
+        <mat-divider class="divider-size"></mat-divider>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="onCosmetice()"><mat-icon>spa</mat-icon>    Cosmetice</button></mat-list-item>
+        <mat-divider class="divider-size"></mat-divider>
         <mat-list-item><button mat-button class="mat-menu-content" (click)="onCarti()"><mat-icon>book</mat-icon>    Carti</button></mat-list-item>
-        <mat-divider class="cart-size"></mat-divider>
+        <mat-divider class="divider-size"></mat-divider>
         <mat-list-item><button mat-button class="mat-menu-content" (click)="onGaming()"><mat-icon>sports_esports</mat-icon>    Gaming</button></mat-list-item>
-        <mat-divider class="cart-size"></mat-divider>
+        <mat-divider class="divider-size"></mat-divider>
         <mat-list-item><button mat-button class="mat-menu-content" (click)="onTelefoane()"><mat-icon>phone_iphone</mat-icon>    Telefoane</button></mat-list-item>
-        <mat-divider class="cart-size"></mat-divider>
+        <mat-divider class="divider-size"></mat-divider>
         <mat-list-item><button mat-button class="mat-menu-content" (click)="onLaptopuri()"><mat-icon>laptop</mat-icon>    Laptopuri</button></mat-list-item>
       </mat-list>
     </mat-menu>
@@ -97,7 +97,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button class = "btn" type = "submit" (click) = "triggerModal(modalConfirm); resetTotal(); resetCart()"><mat-icon class="icons">send</mat-icon></button>
+          <button class = "btn" type = "submit" (click) = "modal.dismiss('Cross click'); triggerModal(modalConfirm); resetTotal(); resetCart()"><mat-icon class="icons">send</mat-icon></button>
         </div>
       </ng-template>
     </mat-menu>
@@ -116,6 +116,8 @@
     <button mat-button [matMenuTriggerFor]="modify" class="button-text" *ngIf="showCrud">Administreaza</button>
     <mat-menu #modify="matMenu" class="mat-modify-size">
       <mat-list>
+        <mat-list-item><button mat-button class="mat-menu-content" (click)="onLoad()"><mat-icon>sync</mat-icon>    Actualizare date</button></mat-list-item>
+        <mat-divider class="divider-size"></mat-divider>
         <mat-list-item><button mat-button class="mat-menu-content" (click)="triggerModal(modalDataAdd)"><mat-icon>add</mat-icon>    Adauga produs</button></mat-list-item>
         <ng-template #modalDataAdd let-modal>
             <div class="modal-header">
@@ -199,10 +201,15 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button class = "btn" type = "submit" (click) = "onAdd(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
+              <button class = "btn" type = "submit" (click) = "onAdd(); modal.dismiss('Cross click'); triggerModal(modalConfirmUpdate)"><mat-icon class="icons">send</mat-icon></button>
+              <ng-template #modalConfirmUpdate let-modal>
+                <div class="modal-body confirmText">
+                  Modificarile au fost realizate. Actualizati datele pentru a le vedea.
+                </div>
+              </ng-template>
             </div>
           </ng-template>
-        <mat-divider class="cart-size"></mat-divider>
+        <mat-divider class="divider-size"></mat-divider>
         <mat-list-item><button mat-button class="mat-menu-content" (click)="triggerModal(modalDataUpdate)"><mat-icon>edit</mat-icon>    Modifica produs</button></mat-list-item>
         <ng-template #modalDataUpdate let-modal>
             <div class="modal-header">
@@ -286,10 +293,15 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button class = "btn" type = "submit" (click) = "onUpdate(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
+              <button class = "btn" type = "submit" (click) = "onUpdate(); modal.dismiss('Cross click'); triggerModal(modalConfirmUpdate)"><mat-icon class="icons">send</mat-icon></button>
+              <ng-template #modalConfirmUpdate let-modal>
+                <div class="modal-body confirmText">
+                  Modificarile au fost realizate. Actualizati datele pentru a le vedea.
+                </div>
+              </ng-template>
             </div>
           </ng-template>
-        <mat-divider class="cart-size"></mat-divider>
+        <mat-divider class="divider-size"></mat-divider>
         <mat-list-item><button mat-button class="mat-menu-content" (click)="triggerModal(modalDataDelete)"><mat-icon>delete</mat-icon>    Sterge produs</button></mat-list-item>
         <ng-template #modalDataDelete let-modal>
             <div class="modal-header">
@@ -310,7 +322,12 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button class = "btn" type = "submit" (click) = "onDelete(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
+              <button class = "btn" type = "submit" (click) = "onDelete(); modal.dismiss('Cross click'); triggerModal(modalConfirmUpdate)"><mat-icon class="icons">send</mat-icon></button>
+              <ng-template #modalConfirmUpdate let-modal>
+                <div class="modal-body confirmText">
+                  Modificarile au fost realizate. Actualizati datele pentru a le vedea.
+                </div>
+              </ng-template>
             </div>
           </ng-template>
         </mat-list>
@@ -371,6 +388,16 @@
                     </div>
                     <div class="modal-body">
                       <form [formGroup]="newAccountForm">
+                        <div>
+                          <label for="id">
+                              Id
+                              <mat-icon class="idIcon">remember_me</mat-icon>
+                          </label>
+                          <input type="number" formControlName="id" class="formAllign" [ngClass]="{ 'is-invalid': newaccountCheck.id.errors }" />
+                          <div *ngIf="newaccountCheck.id.errors" class="invalid-feedback">
+                            <div *ngIf="newaccountCheck.id.errors.required">ID is required</div>
+                          </div>
+                        </div>
                         <div>
                           <label>
                             Prenume
@@ -704,7 +731,7 @@
   <div class="container d-flex justify-content-center mt-100">
     <div class="row">
         <div class="col-md-3" *ngFor="let item of items">
-            <div class="product-wrapper mb-45 text-center">
+            <div class="product-wrapper mb-45 text-center" *ngIf="searched=='' || searched==item.name || searched==item.manufacturer">
                 <div class="product-img"> <img src="{{item.url}}" width="200px" height="200px"> <span class="text-center priceTag">{{item.price}} <button mat-icon-button class="tagIcon"><mat-icon>sell</mat-icon></button></span>
                     <div class="product-action">
                         <div class="product-action-style"> <button mat-button (click) = "triggerModal(modalInfo)" class="detailsButton">Vezi detalii</button>
@@ -749,7 +776,7 @@
                                     <label for="inStock">
                                         Produse in stoc
                                         <mat-icon class="inStockIcon">inventory</mat-icon>
-                                        {{item.inStock}}
+                                        {{item.stock}}
                                     </label>
                                 </div>
                                 <div>

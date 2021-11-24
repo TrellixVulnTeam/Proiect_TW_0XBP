@@ -1,4 +1,5 @@
 export class Customer {
+    public id: number;
     public firstName: string;
     public lastName: string;
     public username: string;
@@ -8,7 +9,8 @@ export class Customer {
     public city: string;
     public country: string;
     public zipcode: number;
-    constructor(firstName: string, lastName: string, username: string, email: string, password: string, address: string, city: string, country: string, zipcode: number){
+    constructor(id: number, firstName: string, lastName: string, username: string, email: string, password: string, address: string, city: string, country: string, zipcode: number){
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

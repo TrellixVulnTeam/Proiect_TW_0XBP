@@ -23,17 +23,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
   
 .mat-menu-size{
-    height: 380px;
-    width: 260px;
+    height: 390px;
+    width: 250px;
     border-style: solid;
-    border-width: 4px;
+    border-width: 3px;
 }
 
 .mat-modify-size{
-    height: 200px;
-    width: 260px;
+    height: 240px;
+    width: 250px;
     border-style: solid;
-    border-width: 4px;
+    border-width: 3px;
 }
 
 .formAllign{
@@ -69,6 +69,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .cart-size{
     width: 300px;
+}
+
+.divider-size{
+    width: 240px;
 }
 
 .carousel{

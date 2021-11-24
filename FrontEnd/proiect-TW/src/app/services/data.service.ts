@@ -9,47 +9,44 @@ import { Administrator } from '../classes/administrator';
   providedIn: 'root'
 })
 export class DataService {
-  baseUrl = 'http://localhost:8080';
+  itemUrl = 'http://localhost:8080/item';
+  customerUrl = 'http://localhost:8080/customer';
+  adminUrl = 'http://localhost:8080/admin';
 
   constructor(private http: HttpClient) { }
 
-  getCustomers(): Observable<Customer[]>{
-    const url = '${this.baseUrl}/customers';
-    return this.http.get<Customer[]>(url);
-  }
-
-  getAdmins(): Observable<Administrator[]>{
-    const url = '${this.baseUrl}/administrators';
-    return this.http.get<Administrator[]>(url);
-  }
-
   getItems(): Observable<Item[]>{
-    const url = '${this.baseUrl}/items';
-    return this.http.get<Item[]>(url);
+    return this.http.get<Item[]>(this.itemUrl);
   }
 
   deleteItem(id: number): Observable<any>{
-    const url = '${this.baseUrl}/items/${id}';
+    const url = `${this.itemUrl}/${id}`;
     return this.http.delete<any>(url);
   }
 
   addItem(item: Item): Observable<any>{
-    const url = '${this.baseUrl}/items';
-    return this.http.post<any>(url, item);
+    return this.http.post<any>(this.itemUrl, item);
   }
 
   updateItem(id: number, item: Item): Observable<any>{
-    const url = '${this.baseUrl}/items/${id}';
+    const url = `${this.itemUrl}/${id}`;
     return this.http.put(url, item);
   }
 
-  addCustomer(customer: Customer): Observable<any>{
-    const url = '${this.baseUrl}/customers';
-    return this.http.post<any>(url, customer);
+  getCustomers(): Observable<Customer[]>{
+    return this.http.get<Customer[]>(this.customerUrl);
   }
 
-  updateAccount(email: string, account: Customer): Observable<any>{
-    const url = '${this.baseUrl}/customers/${email}';
+  getAdmins(): Observable<Administrator[]>{
+    return this.http.get<Administrator[]>(this.adminUrl);
+  }
+
+  addCustomer(customer: Customer): Observable<any>{
+    return this.http.post<any>(this.customerUrl, customer);
+  }
+
+  updateAccount(id: number, account: Customer): Observable<any>{
+    const url = `${this.customerUrl}/${id}`;
     return this.http.put(url, account);
   }
 

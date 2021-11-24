@@ -17,7 +17,7 @@ public class Service implements Controller {
     private ItemDAO itemDao;
 
     @GetMapping("/item")
-    public List<Item> getAllItems() {
+    public List<Item> getItems() {
         List<Item> items = itemDao.getAllItems();
         return items;
     }

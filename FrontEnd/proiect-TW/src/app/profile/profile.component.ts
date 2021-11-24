@@ -29,8 +29,8 @@ export class ProfileComponent implements OnInit {
  public city: string = "";
  public country: string = "";
  public zipcode: number = 0;
- public admin: Administrator = new Administrator("", "", "", "", "", "", "", "", 0, "", "");
- public customer: Customer = new Customer("", "", "", "", "", "", "", "", 0);
+ public admin: Administrator = new Administrator(0, "", "", "", "", "", "", "", "", 0, "", "");
+ public customer: Customer = new Customer(0, "", "", "", "", "", "", "", "", 0);
  // deleteForm: any;
  
  // public items: Item[] = [new Item(1, "Tablou", 100, 70, "H"), new Item(2, "Tabla de sah", 60,10, "HyperX"), new Item(3, "Urs de plus", 40, 20, "Choco")];
