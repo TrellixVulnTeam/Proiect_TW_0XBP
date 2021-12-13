@@ -18,3 +18,6 @@ insert into Item(ItemID, Type, Name, Price, Stock, Manufacturer, Url) values (17
 insert into Item(ItemID, Type, Name, Price, Stock, Manufacturer, Url) values (18, 'Carti', 'Orasul de cenusa', 69, 240, 'Libris', '../assets/orasuldecenusa.png');
 insert into Item(ItemID, Type, Name, Price, Stock, Manufacturer, Url) values (19, 'Cosmetice', 'Serum Contur si Volum', 69, 198, 'Cougar', '../assets/serum.png');
 insert into Item(ItemID, Type, Name, Price, Stock, Manufacturer, Url) values (20, 'Gaming', 'Controller Wireless Xbox', 290, 101, 'Microsoft', '../assets/controller.png');
+
+insert into Administraor(id,firstName,lastName,username,email,password,address,city,country,zipcode,mobile,fix,landline) values (59,'Eminescu','Mihai','mihaieminescu','mihaiadmin@gmail.com','mihaipass','Str. Zorilor ,nr.12','Bucuresti','Romania',1234,'07555555555','+45555555555','Imi place ciocolata');
+insert into Administraor(id,firstName,lastName,username,email,password,address,city,country,zipcode,mobile,fix,landline) values (60,'Blandiana','Anna','annablandiana','annaadmin@gmail.com','annapass','Str. Delfin ,nr.34','Iasi','Romania',7678,'0755442200','+47555544332','Sunt un delfin');
