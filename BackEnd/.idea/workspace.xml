@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d96fdbf3-ef13-4d23-8d2a-e4de82b67b4b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Customer/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Customer/CustomerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Customer/CustomerDAOImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Customer/CustomerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Item/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Item/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemDAOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemDAOImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/ProjectApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/ProjectApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/ResourceNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/ResourceNotFoundException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Service.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/test-classes/com/tw/project/ProjectApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/test-classes/com/tw/project/ProjectApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface Components.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

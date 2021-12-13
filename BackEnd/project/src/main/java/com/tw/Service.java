@@ -2,6 +2,8 @@ package com.tw;
 
 import com.tw.Administrator.Administrator;
 import com.tw.Administrator.AdministratorDAO;
+import com.tw.Customer.Customer;
+import com.tw.Customer.CustomerDAO;
 import com.tw.Item.Item;
 import com.tw.Item.ItemDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class Service implements Controller {
 
     @Autowired
     private AdministratorDAO administratorDao;
+
+    @Autowired
+    private CustomerDAO customerDao;
 
     @GetMapping("/item")
     public List<Item> getItems() {
@@ -77,6 +82,35 @@ public class Service implements Controller {
         Administrator lecture = administratorOpt.orElseThrow(ResourceNotFoundException.RESOURCE_NOT_FOUND_SUPPLIER);
         administratorDao.updateAdministrator(id, administrator);
         return administrator;
+    }
+
+    @GetMapping("/customer")
+    public List<Customer> getCustomer() {
+        List<Customer> customers = customerDao.getAllCustomer();
+        return customers;
+    }
+
+    @DeleteMapping("/customer/{id}")
+    public String deleteCustomer(@PathVariable("id") int id) {
+        Optional<Customer> customerOpt = Optional.ofNullable(customerDao.getCustomer(id));
+        Customer customer = customerOpt.orElseThrow(ResourceNotFoundException.RESOURCE_NOT_FOUND_SUPPLIER);
+        customerDao.deleteCustomer(id);
+        return "The class was deleted";
+    }
+
+    @PostMapping("/customer")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Customer addClass(@RequestBody Customer customer) {
+        customerDao.addCustomer(customer);
+        return customer;
+    }
+
+    @PutMapping("/customer/{id}")
+    public Customer updateCustomer(@PathVariable("id") int id, @RequestBody Customer customer) {
+        Optional<Customer> customerOpt = Optional.ofNullable(customerDao.getCustomer(id));
+        Customer lecture = customerOpt.orElseThrow(ResourceNotFoundException.RESOURCE_NOT_FOUND_SUPPLIER);
+        customerDao.updateCustomer(id, customer);
+        return customer;
     }
 
 }

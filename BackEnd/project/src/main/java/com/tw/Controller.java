@@ -1,6 +1,7 @@
 package com.tw;
 
 import com.tw.Administrator.Administrator;
+import com.tw.Customer.Customer;
 import com.tw.Item.Item;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public interface Controller{
             @ApiResponse(responseCode = "404", description = "No item found", content = @Content) })
     String deleteItem(int id);
 
-    @Operation(summary = "Add class")
+    @Operation(summary = "Add item")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "The item was added", content = {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = Item.class)) }),
@@ -74,4 +75,34 @@ public interface Controller{
             @ApiResponse(responseCode = "404", description = "No administrator found", content = @Content) })
     Administrator updateAdministrator(int id, Administrator administrator);
 
+    @Operation(summary = "Get all customers")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "All the customers were returned", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Customer.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content),
+            @ApiResponse(responseCode = "404", description = "No customers found", content = @Content) })
+    List<Customer> getCustomer();
+
+    @Operation(summary = "Delete customer by Id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "The customer was deleted", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Customer.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content),
+            @ApiResponse(responseCode = "404", description = "No customer found", content = @Content) })
+    String deleteCustomer(int id);
+
+    @Operation(summary = "Add customer")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "The customer was added", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Customer.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
+    Customer addClass(Customer customer);
+
+    @Operation(summary = "Update by Id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "The customer was updated", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Customer.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content),
+            @ApiResponse(responseCode = "404", description = "No customer found", content = @Content) })
+    Customer updateCustomer(int id, Customer customer);
 }
