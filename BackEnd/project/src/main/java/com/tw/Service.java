@@ -1,5 +1,7 @@
 package com.tw;
 
+import com.tw.Administrator.Administrator;
+import com.tw.Administrator.AdministratorDAO;
 import com.tw.Item.Item;
 import com.tw.Item.ItemDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ import java.util.Optional;
 public class Service implements Controller {
     @Autowired
     private ItemDAO itemDao;
+
+    @Autowired
+    private AdministratorDAO administratorDao;
 
     @GetMapping("/item")
     public List<Item> getItems() {
@@ -43,6 +48,35 @@ public class Service implements Controller {
         Item lecture = itemOpt.orElseThrow(ResourceNotFoundException.RESOURCE_NOT_FOUND_SUPPLIER);
         itemDao.updateItem(id, item);
         return item;
+    }
+
+    @GetMapping("/administrator")
+    public List<Administrator> getAdministrator() {
+        List<Administrator> administrators = administratorDao.getAllAdministrator();
+        return administrators;
+    }
+
+    @DeleteMapping("/administrator/{id}")
+    public String deleteAdministrator(@PathVariable("id") int id) {
+        Optional<Administrator> administratorOpt = Optional.ofNullable(administratorDao.getAdministrator(id));
+        Administrator administrator = administratorOpt.orElseThrow(ResourceNotFoundException.RESOURCE_NOT_FOUND_SUPPLIER);
+        administratorDao.deleteAdministrator(id);
+        return "The class was deleted";
+    }
+
+    @PostMapping("/administrator")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Administrator addClass(@RequestBody Administrator administrator) {
+        administratorDao.addAdministrator(administrator);
+        return administrator;
+    }
+
+    @PutMapping("/administrator/{id}")
+    public Administrator updateAdministrator(@PathVariable("id") int id, @RequestBody Administrator administrator) {
+        Optional<Administrator> administratorOpt = Optional.ofNullable(administratorDao.getAdministrator(id));
+        Administrator lecture = administratorOpt.orElseThrow(ResourceNotFoundException.RESOURCE_NOT_FOUND_SUPPLIER);
+        administratorDao.updateAdministrator(id, administrator);
+        return administrator;
     }
 
 }

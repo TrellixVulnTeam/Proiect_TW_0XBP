@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d96fdbf3-ef13-4d23-8d2a-e4de82b67b4b" name="Changes" comment="" />
+    <list default="true" id="d96fdbf3-ef13-4d23-8d2a-e4de82b67b4b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Item/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Item/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemDAOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemDAOImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/ProjectApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/ProjectApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/ResourceNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/ResourceNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/test-classes/com/tw/project/ProjectApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/test-classes/com/tw/project/ProjectApplicationTests.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +60,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Licenta/MainApp/BackEnd" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
