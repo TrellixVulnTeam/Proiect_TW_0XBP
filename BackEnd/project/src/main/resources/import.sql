@@ -21,3 +21,9 @@ insert into Item(ItemID, Type, Name, Price, Stock, Manufacturer, Url) values (20
 
 insert into Administraor(id,firstName,lastName,username,email,password,address,city,country,zipcode,mobile,fix,landline) values (59,'Eminescu','Mihai','mihaieminescu','mihaiadmin@gmail.com','mihaipass','Str. Zorilor ,nr.12','Bucuresti','Romania',1234,'07555555555','+45555555555','Imi place ciocolata');
 insert into Administraor(id,firstName,lastName,username,email,password,address,city,country,zipcode,mobile,fix,landline) values (60,'Blandiana','Anna','annablandiana','annaadmin@gmail.com','annapass','Str. Delfin ,nr.34','Iasi','Romania',7678,'0755442200','+47555544332','Sunt un delfin');
+
+insert into Customer(id, firstName, lastName, username, email, password, address, city, country, zipcode) values (1, 'Andreea', 'Andreas', 'andreeaandreas', 'andreeaandreas@yahoo.com', '1234', 'strada Lalelei, nr.385', 'Arad', 'Romania', 317055);
+insert into Customer(id, firstName, lastName, username, email, password, address, city, country, zipcode) values (2, 'Aurora', 'Maia', 'maiaA', 'maiaaurora@gmail.com', 'asdfg', 'strada Blănari, nr.2', 'Botosani', 'Romania', 717325);
+insert into Customer(id, firstName, lastName, username, email, password, address, city, country, zipcode) values (3, 'Flavia ', 'Heidi ', 'HeidiFlavia', 'flaviaheidi.78@yahoo.com', 'ratt123', 'Piaţa 14 Decembrie 1989, nr.1', 'Iasi', 'Romania', 700123);
+insert into Customer(id, firstName, lastName, username, email, password, address, city, country, zipcode) values (4, 'Felix', 'Rares', 'RaresFelix', 'felixrares12@gmail.com', '7516923', 'Bulevardul Gheorghe Duca, nr.21', 'Bucuresti', 'Romania', 061622);
+insert into Customer(id, firstName, lastName, username, email, password, address, city, country, zipcode) values (5, 'Dan ', 'Dima ', 'dandima', 'dimadan@gmail.com', '1234', 'Strada Aida, nr.17', 'Timisoara', 'Romania', 300310);
