@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Validators } from '@angular/forms';
+import { MatSelectChange } from '@angular/material/select';
 import { Administrator } from '../classes/administrator';
 import { Customer } from '../classes/customer';
 import { DataService } from '../services/data.service';
@@ -114,8 +115,6 @@ export class HomeComponent implements OnInit {
   })
 
   addForm = this.formBuilder.group({
-    id: ['1', Validators.required],
-    type: ['', Validators.required],
     name: ['', Validators.required],
     price: ['0', Validators.required],
     inStock: ['0', Validators.required],
@@ -167,14 +166,12 @@ export class HomeComponent implements OnInit {
     if (this.addForm.invalid) {
       return;
     }
-    this.id = this.addForm.get('id')!.value;
-    this.type = this.addForm.get('type')!.value;
     this.name = this.addForm.get('name')!.value;
     this.price = this.addForm.get('price')!.value;
     this.inStock = this.addForm.get('inStock')!.value;
     this.manufacturer = this.addForm.get('manufacturer')!.value;
     this.url = "../assets/" + this.addForm.get('url')!.value;
-    this.dataService.addItem(new Item(this. id, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url)).subscribe();
+    this.dataService.addItem(new Item(0, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url)).subscribe();
     this.getItems();
   }
 
@@ -270,32 +267,36 @@ export class HomeComponent implements OnInit {
     this.searched = this.searchForm.get('searched')!.value;
   }
 
+  onToate(){
+    this.catalog = '';
+  }
+
   onImbracaminte(){
-    this.catalog = "imbracaminte";
+    this.catalog = "Imbracaminte";
   }
 
   onJucarii(){
-    this.catalog = "jucarii";
+    this.catalog = "Jucarii";
   }
 
   onCosmetice(){
-    this.catalog = "cosmetice";
+    this.catalog = "Cosmetice";
   }
 
   onCarti(){
-    this.catalog = "carti";
+    this.catalog = "Carti";
   }
 
   onGaming(){
-    this.catalog = "gaming";
+    this.catalog = "Gaming";
   }
 
   onTelefoane(){
-    this.catalog = "telefoane";
+    this.catalog = "Telefoane";
   }
 
   onLaptopuri(){
-    this.catalog = "laptopuri";
+    this.catalog = "Laptopuri";
   }
 
   calculateTotal(): void{
@@ -323,6 +324,10 @@ export class HomeComponent implements OnInit {
 
   valueChanged(event: any) {
     this.filter = event.value;
+  }
+
+  selectedType(event: MatSelectChange){
+    this.type = event.value;
   }
 
 }

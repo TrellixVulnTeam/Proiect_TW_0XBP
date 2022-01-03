@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class Item {
     @Id
     @Column(name = "ItemID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
 
     @Column(name = "Type")
@@ -32,6 +33,15 @@ public class Item {
 
     public Item() {
 
+    }
+
+    public Item(String type, String name, float price, int stock, String manufacturer, String url) {
+        this.type = type;
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+        this.manufacturer = manufacturer;
+        this.url = url;
     }
 
     public Item(Item item){

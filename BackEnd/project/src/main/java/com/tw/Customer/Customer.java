@@ -13,10 +13,10 @@ public class Customer {
     @Column(name = "Id")
     public int id;
 
-    @Column(name = "FirstName")
+    @Column(name = "FIRSTNAME")
     public String firstName;
 
-    @Column(name = "LastName")
+    @Column(name = "LASTNAME")
     public String lastName;
 
     @Column(name = "Username")

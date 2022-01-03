@@ -33,8 +33,9 @@ public class ItemDAOImp implements ItemDAO{
     }
 
     public void addItem(Item item) {
-        items.add(item);
-        repository.save(item);
+        Item newItem = new Item(0, item.type, item.name, item.price, item.stock, item.manufacturer, item.url);
+        items.add(newItem);
+        repository.save(newItem);
     }
 
     public void updateItem(int id, Item item){

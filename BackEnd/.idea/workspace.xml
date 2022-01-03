@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d96fdbf3-ef13-4d23-8d2a-e4de82b67b4b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Administrator/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Administrator/Administrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Administrator/AdministratorDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Administrator/AdministratorDAOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Item/ItemDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Item/ItemDAOImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Administrator/Administrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Administrator/Administrator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Administrator/AdministratorDAOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Administrator/AdministratorDAOImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Item/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Item/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemDAOImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/com/tw/Item/ItemDAOImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/classes/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +64,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Licenta/MainApp/BackEnd" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -125,5 +132,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/project/src/main/java/com/tw/Administrator/AdministratorDAOImp.java</url>
+          <line>19</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

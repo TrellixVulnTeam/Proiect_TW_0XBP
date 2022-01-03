@@ -13,38 +13,35 @@ public class Administrator {
     @Column(name = "Id")
     public int id;
 
-    @Column(name = "FirstName")
+    @Column(name = "FIRSTNAME")
     public String firstName;
 
-    @Column(name = "LastName")
+    @Column(name = "LASTNAME")
     public String lastName;
 
-    @Column(name = "Username")
+    @Column(name = "username")
     public String username;
 
-    @Column(name = "Email")
+    @Column(name = "email")
     public String email;
 
-    @Column(name = "Password")
+    @Column(name = "password")
     public String password;
 
-    @Column(name = "Address")
+    @Column(name = "address")
     public String address;
 
-    @Column(name = "City")
+    @Column(name = "city")
     public String city;
 
-    @Column(name = "Country")
+    @Column(name = "country")
     public String country;
 
-    @Column(name = "Zipcode")
+    @Column(name = "zipcode")
     public int zipcode;
 
-    @Column(name = "Mobile")
+    @Column(name = "mobile")
     public String mobile;
-
-    @Column(name = "MobileFix")
-    public String fix;
 
     @Column(name = "landline")
     public String landline;
@@ -65,11 +62,10 @@ public class Administrator {
         this.country = administrator.country;
         this.zipcode = administrator.zipcode;
         this.mobile = administrator.mobile;
-        this.fix=administrator.fix;
         this.landline = administrator.landline;
     }
 
-    public Administrator(int id, String firstName, String lastName, String username, String email, String password, String address, String city, String country, int zipcode, String mobile,String fix, String landline){
+    public Administrator(int id, String firstName, String lastName, String username, String email, String password, String address, String city, String country, int zipcode, String mobile, String landline){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -81,7 +77,6 @@ public class Administrator {
         this.country = country;
         this.zipcode = zipcode;
         this.mobile = mobile;
-        this.fix=fix;
         this.landline = landline;
     }
 
@@ -123,9 +118,6 @@ public class Administrator {
     public String getMobile(){return mobile;}
     public void setMobile(String mobile){ this.mobile = mobile;}
 
-    public String getFix(){return fix;}
-    public void setFix(String fix){ this.fix = fix;}
-
     public String getLandline(){return landline;}
     public void setLandline(String landline){ this.landline = landline;}
 
@@ -143,7 +135,6 @@ public class Administrator {
                 ", country=" + country + '\'' +
                 ", zipcode=" + zipcode + '\'' +
                 ", mobile='" + mobile + '\'' +
-                ", fix='" + fix + '\'' +
                 ", landline='" + landline + '\'' +
                 '}';
     }

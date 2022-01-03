@@ -15,7 +15,6 @@ public class AdministratorDAOImp implements AdministratorDAO {
 
     public List<Administrator> administrators = new ArrayList<Administrator>();
 
-    @Override
     public List<Administrator> getAllAdministrator() {
         administrators = new ArrayList<Administrator>();
         repository.findAll().forEach(administrator -> administrators.add(new Administrator(administrator)));
@@ -57,7 +56,6 @@ public class AdministratorDAOImp implements AdministratorDAO {
         i.setCountry(administrator.country);
         i.setZipcode(administrator.zipcode);
         i.setMobile(administrator.mobile);
-        i.setFix(administrator.fix);
         i.setLandline(administrator.landline);
         repository.save(i);
     }
