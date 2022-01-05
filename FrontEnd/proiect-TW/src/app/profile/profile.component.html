@@ -64,8 +64,8 @@
             Telefon Fix       
        <mat-icon style="margin-left: 65px" class="phoneIcon">landline</mat-icon>
         </label>
-        <input *ngIf="updateForm==false; else showPhone" disabled value="{{admin.landline}}" class="formAllign">
-        <ng-template #showPhone>
+        <input *ngIf="updateForm==false; else showLandline" disabled value="{{admin.landline}}" class="formAllign">
+        <ng-template #showLandline>
             <input type="text" formControlName="landline" class="formAllign" [ngClass]="{ 'is-invalid':updateAccountCheck.landline.errors }" placeholder="{{admin.landline}}" />
         </ng-template>
         </div>
@@ -239,7 +239,9 @@
             </form>
         </form>
     </ng-template>
+
   </mat-card-content>
+
   <mat-card-actions class="profileActions">
       <button mat-button class="button-text" (click) = "onChangePassword()">Schimbă parola&nbsp;&nbsp;<mat-icon>edit</mat-icon></button>
       <button mat-button *ngIf="updateForm==false && changePassword==false" class="button-text" (click) = "onAccountUpdate()" style="margin-left: 20px;">Actualizare cont&nbsp;&nbsp;<mat-icon>edit</mat-icon></button>
@@ -250,5 +252,8 @@
           </div>
       </ng-template>
     </mat-card-actions>
-   
+    
+
 </mat-card>
+
+
