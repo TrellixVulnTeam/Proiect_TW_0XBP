@@ -1,150 +1,10 @@
 <!DOCTYPE html>
- 
-<button mat-fab class="menuIcons"  routerLink="/" routerLinkActive="active" (click)="onBack()"><mat-icon>home</mat-icon>
-</button> 
-<!-- <div class="panel-header panel-header-sm f2">
-</div> -->
- 
-<!-- <div class="main-content col-md-30 pl-30  ">
- <div class="card">
-   <div class="card-header fond column">
-     <h5 class="">
-         <button mat-fab class="menuIcons"  routerLink="/" routerLinkActive="active" (click)="onBack()"><mat-icon>home</mat-icon>
-           </button> -->
-            <!-- <mat-toolbar class="toolbar" class="fond"> -->
-        <!-- <span>&nbsp;&nbsp;</span>        <span>&nbsp;&nbsp;</span>
-        <span>&nbsp;&nbsp;</span>        <span>&nbsp;&nbsp;</span>
- -->
+<div class="b">
 
-      <!-- <button mat-fab class="menuIcons" [matMenuTriggerFor]="menu" ><mat-icon >menu</mat-icon></button>  -->
-       <!-- <mat-menu #menu="matMenu" class="mat-menu-size" >
-         <mat-list>  -->
-           <!-- <mat-list-item class="menuIcons"><button mat-mini-fab class="menuIcons" (click)="onFavorite" class="menuIcons"><mat-icon  >favorite_border</mat-icon>    Favorite</button></mat-list-item>
-           <li *ngFor="let item of items">
-               <mat-list-item>
-                 <button mat-icon-button (click)="removeCartItem(item)" class="pinkColor"><mat-icon class="pinkColor">favorite_border</mat-icon></button>&nbsp;&nbsp;&nbsp;
-                 {{item.name}}: {{item.price}} RON
-               </mat-list-item>
-               <mat-divider class="cart-size"></mat-divider>
-             </li> -->
-           <!-- <mat-list-item><button mat-button class="mat-menu-content" (click)="onCard" class="menuIcons"><mat-icon>card_membership</mat-icon>    Card de reducere</button></mat-list-item>
-         </mat-list>
-        </mat-menu> -->
-    <!-- </mat-toolbar> -->
-     <!--  -->
+<button mat-fab class="menuIcons "  routerLink="/" routerLinkActive="active" (click)="onBack()"><mat-icon>home</mat-icon>
+</button> </div>
 
-    
-    
-    <!-- </h5>
-     <div class="h1  "> <h4 style="font-size:50px; color:#ffcccc; margin:1px;"><i>Buna ziua,{{admin.lastName}}{{customer.lastName}}!</i></h4>
-     </div> -->
-
-    <!-- profilepic -->
-   
-     <!-- <div class="col-md-14 pl-20 f2 "><br>
-        <br>
-<div class="">
-            <br> <h5 class="title margin" style="color:#ffcccc"><b> Profilul meu!</b></h5><br>
-            <span class="margin"></span>
-            <div class=""></div>
-              <div class="row">
-            <div class="fond2">
-                <form class="row ">
-                  <div class=" form-group f2">
-                   
-                  </div>
-                  
-
-                    <div class="col-md-10 pl-12">
-                      <div class=" form-group f2" >
-                       <label ><b>Username:</b></label>
-                       <input type="text" class=" form-control style2 "  placeholder="Username" value="{{admin.username}}{{customer.username}}">
-                      </div>
-                    </div>
-                  
-                      <div class="col-md-10 pl-12 ">
-                      <div class="form-group f2 " >
-                        <label for="email"><b>Email:</b> </label>
-                        <input name="email" id="email" type="email" class=" form-control style2 " placeholder="Email" value="{{admin.email}}{{customer.email}}">
-                      </div>
-                    </div>
-                 -->
-                    <!-- <div class="col-md-10 p-12 ">
-                      <div class="form-group f2">
-                        <label><b>Nume:</b></label>
-                        <input type="text" class="form-control style2 " placeholder="Nume" value="{{admin.firstName}}{{customer.firstName}}">
-                      </div>
-                    </div>
-                    <div class="col-md-10 pl-12 ">
-                      <div class=" form-group f2">
-                        <label><b>Prenume:</b></label>
-                        <input type="text" class="form-control style2 " placeholder="Prenume" value="{{admin.lastName}}{{customer.lastName}}">
-                      </div>
-                    </div>
-                  
-                  <br>
-                    <div class="col-md-10 px-12 ">
-                      <div class=" f2">
-                        <label><b>Adresa:</b></label>
-                        <input type="text" class="form-control style2" placeholder="Adresa" value="{{admin.address}}{{customer.address}}">
-                      </div>
-                    </div>
-                
-                    <div class="col-md-10 pr-15">
-                      <div class="form-group f2" >
-                        <label><b>Oras:</b></label>
-                        <input type="text" class="form-control style2 " placeholder="Oras" value="{{admin.city}}{{customer.city}}">
-                      </div>
-                    </div>
-                    <div class="col-md-10 px-17">
-                      <div class="form-group f2">
-                        <label><b>Tara:</b></label>
-                        <input type="text" class="form-control style2 " placeholder="Tara" value="{{admin.country}}{{customer.country}}">
-                      </div>
-                    </div>
-                    <div class="col-md-10 pr-12">
-                      <div class="form-group f2">
-                        <label><b>Cod postal:</b></label>
-                        <div *ngIf="admin.zipcode==0"><input type="number" class="form-control style2 f2" placeholder="Cod postal" value="{{customer.zipcode}}"></div>
-                        <div *ngIf="customer.zipcode==0"><input type="number" class="form-control style2 f2" placeholder="Cod postal" value="{{admin.zipcode}}"></div>
-                      </div>
-                    </div>
-    
-                     <div class="col-md-10 px-17">
-                       <div class="form-group f2">
-                         <div *ngIf="customer.zipcode==0"><label><b>Numar de telefon personal:</b></label><input type="" class="form-control style2 f2" placeholder="Numar de telefon personal" value="{{admin.mobile}}"></div>
-                         <div *ngIf="customer.zipcode==0"><label><b>Numar de telefon fix:</b></label><input type="" class="form-control style2 f2" placeholder="Numar de telefon fix:" value="{{admin.landline}}"></div>
-   
-                       </div>
-                     </div>
-                     <mat-toolbar class=" fond2" class="sendIcos">
-                      <ng-template #modalDataLogin let-modal>
-                          <button class = "btn fond" type = "submit" (click)="onBack(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
-                      </ng-template>
-                      <div>
-                        <mat-toolbar class="sendIcon " >     
-                          <button mat-fab class="menuIcons"  type="submit" ><mat-icon >send</mat-icon></button>
-                         </mat-toolbar>
-                        </div>
-                </mat-toolbar> -->
-                    <!-- f1 -->
-
-<!--                    
-                </form>
-                
-    
-              </div>
-              </div>
-            </div>
-            </div> -->
-<!-- dataaaa -->
-   <!-- </div>
-     </div> -->
-
-   
-
-
-<mat-card class="profileData">
+<mat-card class="profileData" >
   <img mat-card-lg-image src="../assets/profil.jpeg"><p class="roleText"><div *ngIf="admin.mobile!=''; else showCustomer">Administrator</div>
     <ng-template #showCustomer>Client</ng-template>
   <mat-card-content>
@@ -153,8 +13,8 @@
       <form [formGroup]="updateAccountForm">
           <div>
               <label>
-                  First Name
-                  <mat-icon class="nameIcon">person</mat-icon>
+                  Nume
+                  <mat-icon style="margin-left: 100px" class="nameIcon">person</mat-icon>
               </label>
               <input *ngIf="updateForm==false; else showFirstName" disabled value="{{admin.firstName}}" class="formAllign">
               <ng-template #showFirstName>
@@ -162,10 +22,57 @@
               </ng-template>
               
           </div>
+
+          <div>
+            <label>
+                Prenume
+                <mat-icon style="margin-left: 80px"class="nameIcon">person</mat-icon>
+            </label>
+            <input *ngIf="updateForm==false; else showLastName" disabled value="{{admin.lastName}}" class="formAllign">
+            <ng-template #showLastName>
+                <input type="text" formControlName="lastName" class="formAllign" [ngClass]="{ 'is-invalid':updateAccountCheck.lastName.errors }" placeholder="{{admin.lastName}}"/>
+            </ng-template>
+            
+        </div>
+        <div>
+            <label for="email">
+                E-mail
+                <mat-icon style="margin-left: 100px"class="emailIcon">email</mat-icon>
+            </label>
+            <input *ngIf="updateForm==false; else showEmail" disabled value="{{admin.email}}" class="formAllign">
+            <ng-template #showEmail>
+                <input type="text" formControlName="email" class="formAllign" [ngClass]="{ 'is-invalid': updateAccountCheck.email.errors }" placeholder="{{admin.email}}" />
+            </ng-template>
+            <div *ngIf="updateAccountCheck.email.errors" class="invalid-feedback">
+                <div *ngIf="updateAccountCheck.email.errors.required">Introduceți adresa de e-mail!</div>
+                <div *ngIf="updateAccountCheck.email.errors.email">Adresa de e-mail trebuie să fie validă!</div>
+            </div>
+        </div>
+        <div>
+            <label for="mobile">
+                Telefon Mobil
+                <mat-icon style="margin-left: 50px" class="phoneIcon">phone</mat-icon>
+            </label>
+            <input *ngIf="updateForm==false; else showPhone" disabled value="{{admin.mobile}}" class="formAllign">
+            <ng-template #showPhone>
+                <input type="text" formControlName="mobile" class="formAllign" [ngClass]="{ 'is-invalid':updateAccountCheck.mobile.errors }" placeholder="{{admin.mobile}}" />
+            </ng-template>
+
+        </div>
+        <div>
+          <label for="landline">
+            Telefon Fix       
+       <mat-icon style="margin-left: 65px" class="phoneIcon">landline</mat-icon>
+        </label>
+        <input *ngIf="updateForm==false; else showPhone" disabled value="{{admin.landline}}" class="formAllign">
+        <ng-template #showPhone>
+            <input type="text" formControlName="landline" class="formAllign" [ngClass]="{ 'is-invalid':updateAccountCheck.landline.errors }" placeholder="{{admin.mobile}}" />
+        </ng-template>
+        </div>
           <div>
               <label>
                   Adresa
-                  <mat-icon class="nameIcon">person</mat-icon>
+                  <mat-icon style="margin-left: 93px" class="nameIcon">location_on</mat-icon>
               </label>
               <input *ngIf="updateForm==false; else showAddress" disabled value="{{admin.address}}" class="formAllign">
               <ng-template #showAddress>
@@ -176,8 +83,8 @@
 
           <div>
               <label>
-CitY
-                  <mat-icon class="nameIcon">person</mat-icon>
+                 Oraș
+                  <mat-icon style="margin-left: 110px" class="nameIcon">location_on</mat-icon>
               </label>
               <input *ngIf="updateForm==false; else showCity" disabled value="{{admin.city}}" class="formAllign">
               <ng-template #showCity>
@@ -187,8 +94,8 @@ CitY
           </div>
           <div>
               <label>
-                  Country
-                  <mat-icon class="nameIcon">person</mat-icon>
+                  Țara
+                  <mat-icon style="margin-left: 110px" class="nameIcon">location_on</mat-icon>
               </label>
               <input *ngIf="updateForm==false; else showCountry" disabled value="{{admin.country}}" class="formAllign">
               <ng-template #showCountry>
@@ -198,8 +105,8 @@ CitY
           </div>
           <div>
               <label>
-                  Zipcode
-                  <mat-icon class="nameIcon">person</mat-icon>
+                  Cod Poștal
+                  <mat-icon style="margin-left: 70px" class="nameIcon">person</mat-icon>
               </label>
               <input *ngIf="updateForm==false; else showZipcode" disabled value="{{admin.zipcode}}" class="formAllign">
               <ng-template #showZipcode>
@@ -208,64 +115,20 @@ CitY
               
           </div>
 
-          <div>
-              <label>
-                  Last Name
-                  <mat-icon class="nameIcon">person</mat-icon>
-              </label>
-              <input *ngIf="updateForm==false; else showLastName" disabled value="{{admin.lastName}}" class="formAllign">
-              <ng-template #showLastName>
-                  <input type="text" formControlName="lastName" class="formAllign" [ngClass]="{ 'is-invalid':updateAccountCheck.lastName.errors }" placeholder="{{admin.lastName}}"/>
-              </ng-template>
-              
-          </div>
-          <div>
-              <label for="email">
-                  E-mail
-                  <mat-icon class="emailIcon">email</mat-icon>
-              </label>
-              <input *ngIf="updateForm==false; else showEmail" disabled value="{{admin.email}}" class="formAllign">
-              <ng-template #showEmail>
-                  <input type="text" formControlName="email" class="formAllign" [ngClass]="{ 'is-invalid': updateAccountCheck.email.errors }" placeholder="{{admin.email}}" />
-              </ng-template>
-              <div *ngIf="updateAccountCheck.email.errors" class="invalid-feedback">
-                  <div *ngIf="updateAccountCheck.email.errors.required">Email is required</div>
-                  <div *ngIf="updateAccountCheck.email.errors.email">Email must be a valid email address</div>
-              </div>
-          </div>
-          <div>
-              <label for="mobile">
-                  Phone Number
-                  <mat-icon class="phoneIcon">phone</mat-icon>
-              </label>
-              <input *ngIf="updateForm==false; else showPhone" disabled value="{{admin.mobile}}" class="formAllign">
-              <ng-template #showPhone>
-                  <input type="text" formControlName="mobile" class="formAllign" [ngClass]="{ 'is-invalid':updateAccountCheck.mobile.errors }" placeholder="{{admin.mobile}}" />
-              </ng-template>
-
-          </div>
-          <div>
-            <label for="landline">
-Fix              <mat-icon class="phoneIcon">landline</mat-icon>
-          </label>
-          <input *ngIf="updateForm==false; else showPhone" disabled value="{{admin.landline}}" class="formAllign">
-          <ng-template #showPhone>
-              <input type="text" formControlName="landline" class="formAllign" [ngClass]="{ 'is-invalid':updateAccountCheck.landline.errors }" placeholder="{{admin.mobile}}" />
-          </ng-template>
-          </div>
+        
           <form [formGroup]="changePasswordForm">
               <div *ngIf="changePassword==true">
                   <label for="password">
-                      Password
-                      <mat-icon class="passwordIcon">password</mat-icon>
+                      Parolă
+                      <mat-icon  class="passwordIcon">password</mat-icon>
                       <button mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                       </button>
                   </label>
                   <input [type]="hide ? 'password' : 'text'" password="password" formControlName="password" class="formAllign" [ngClass]="{ 'is-invalid': passwordCheck.password.errors }">
                   <div *ngIf="passwordCheck.password.errors" class="invalid-feedback">
-                      <div *ngIf="passwordCheck.password.errors.required">Password is required</div>
-                      <div *ngIf="passwordCheck.password.errors.minlength">Password must be at least 6 characters</div>
+                      <div *ngIf="passwordCheck.password.errors.required">Introduceți parola!</div>
+                      <div *ngIf="passwordCheck.password.errors.minlength">Parola trebuie să conțina minim 6 caractere!</div>
                   </div>
               </div>
           </form>
@@ -276,8 +139,8 @@ Fix              <mat-icon class="phoneIcon">landline</mat-icon>
         <form [formGroup]="updateAccountForm">
             <div>
                 <label>
-                    First Name
-                    <mat-icon class="nameIcon">person</mat-icon>
+                    Nume
+                    <mat-icon style="margin-left: 100px" class="nameIcon">person</mat-icon>
                 </label>
                 <input *ngIf="updateForm==false; else showFirstName" disabled value="{{customer.firstName}}" class="formAllign">
                 <ng-template #showFirstName>
@@ -287,8 +150,8 @@ Fix              <mat-icon class="phoneIcon">landline</mat-icon>
             </div>
             <div>
                 <label>
-                    Last Name
-                    <mat-icon class="nameIcon">person</mat-icon>
+                    Prenume
+                    <mat-icon style="margin-left: 80px"class="nameIcon">person</mat-icon>
                 </label>
                 <input *ngIf="updateForm==false; else showLastName" disabled value="{{customer.lastName}}" class="formAllign">
                 <ng-template #showLastName>
@@ -296,24 +159,24 @@ Fix              <mat-icon class="phoneIcon">landline</mat-icon>
                 </ng-template>
                 
             </div>
-            <div>
-                <label for="email">
+            <div >
+                <label for="email" >
                     E-mail
-                    <mat-icon class="emailIcon">email</mat-icon>
+                    <mat-icon style="margin-left: 100px" class="emailIcon">email</mat-icon>
                 </label>
                 <input *ngIf="updateForm==false; else showEmail" disabled value="{{customer.email}}" class="formAllign">
                 <ng-template #showEmail>
                     <input type="text" formControlName="email" class="formAllign" [ngClass]="{ 'is-invalid': updateAccountCheck.email.errors }" placeholder="{{customer.email}}" />
                 </ng-template>
                 <div *ngIf="updateAccountCheck.email.errors" class="invalid-feedback">
-                    <div *ngIf="updateAccountCheck.email.errors.required">Email is required</div>
-                    <div *ngIf="updateAccountCheck.email.errors.email">Email must be a valid email address</div>
+                    <div *ngIf="updateAccountCheck.email.errors.required">Introduceți o adresă de e-mail!</div>
+                    <div *ngIf="updateAccountCheck.email.errors.email">Adresa de e-mail trebuie să fie validă!</div>
                 </div>
             </div>
             <div>
                 <label>
                     Adresa
-                    <mat-icon class="nameIcon">person</mat-icon>
+                    <mat-icon style="margin-left: 95px" class="nameIcon">location_on</mat-icon>
                 </label>
                 <input *ngIf="updateForm==false; else showAddress" disabled value="{{customer.address}}" class="formAllign">
                 <ng-template #showAddress>
@@ -324,8 +187,8 @@ Fix              <mat-icon class="phoneIcon">landline</mat-icon>
   
             <div>
                 <label>
-  CitY
-                    <mat-icon class="nameIcon">person</mat-icon>
+                 Oraș
+                    <mat-icon style="margin-left: 110px" class="nameIcon">location_on</mat-icon>
                 </label>
                 <input *ngIf="updateForm==false; else showCity" disabled value="{{customer.city}}" class="formAllign">
                 <ng-template #showCity>
@@ -335,8 +198,8 @@ Fix              <mat-icon class="phoneIcon">landline</mat-icon>
             </div>
             <div>
                 <label>
-                    Country
-                    <mat-icon class="nameIcon">person</mat-icon>
+                    Țara
+                    <mat-icon style="margin-left: 110px" class="nameIcon">location_on</mat-icon>
                 </label>
                 <input *ngIf="updateForm==false; else showCountry" disabled value="{{customer.country}}" class="formAllign">
                 <ng-template #showCountry>
@@ -346,8 +209,8 @@ Fix              <mat-icon class="phoneIcon">landline</mat-icon>
             </div>
             <div>
                 <label>
-                    Zipcode
-                    <mat-icon class="nameIcon">person</mat-icon>
+                    Cod Poștal
+                    <mat-icon style="margin-left: 70px" class="nameIcon">person</mat-icon>
                 </label>
                 <input *ngIf="updateForm==false; else showZipcode" disabled value="{{customer.zipcode}}" class="formAllign">
                 <ng-template #showZipcode>
@@ -361,7 +224,7 @@ Fix              <mat-icon class="phoneIcon">landline</mat-icon>
             <form [formGroup]="changePasswordForm">
                 <div *ngIf="changePassword==true">
                     <label for="password">
-                        Password
+                        Parola
                         <mat-icon class="passwordIcon">password</mat-icon>
                         <button mat-icon-button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -369,25 +232,23 @@ Fix              <mat-icon class="phoneIcon">landline</mat-icon>
                     </label>
                     <input [type]="hide ? 'password' : 'text'" password="password" formControlName="password" class="formAllign" [ngClass]="{ 'is-invalid': passwordCheck.password.errors }">
                     <div *ngIf="passwordCheck.password.errors" class="invalid-feedback">
-                        <div *ngIf="passwordCheck.password.errors.required">Password is required</div>
-                        <div *ngIf="passwordCheck.password.errors.minlength">Password must be at least 6 characters</div>
+                        <div *ngIf="passwordCheck.password.errors.required">Introduceți parola!</div>
+                        <div *ngIf="passwordCheck.password.errors.minlength">Parola trebuie să contină minim 6 caractere</div>
                     </div>
                 </div>
             </form>
         </form>
     </ng-template>
-
   </mat-card-content>
   <mat-card-actions class="profileActions">
-      <button mat-button class="button-text" (click) = "onChangePassword()">Change Password&nbsp;&nbsp;<mat-icon>edit</mat-icon></button>
-      <button mat-button *ngIf="updateForm==false && changePassword==false" class="button-text" (click) = "onAccountUpdate()" style="margin-left: 87px;">Update Account&nbsp;&nbsp;<mat-icon>edit</mat-icon></button>
-      <button mat-button *ngIf="updateForm==true || changePassword==true" class="button-text" (click) = "onSaveAccountUpdate(); triggerModal(modalConfirmAccountUpdate)" style="margin-left: 87px;">Save Update&nbsp;&nbsp;<mat-icon>edit</mat-icon></button>
+      <button mat-button class="button-text" (click) = "onChangePassword()">Schimbă parola&nbsp;&nbsp;<mat-icon>edit</mat-icon></button>
+      <button mat-button *ngIf="updateForm==false && changePassword==false" class="button-text" (click) = "onAccountUpdate()" style="margin-left: 20px;">Actualizare cont&nbsp;&nbsp;<mat-icon>edit</mat-icon></button>
+      <button mat-button *ngIf="updateForm==true || changePassword==true" class="button-text" (click) = "onSaveAccountUpdate(); triggerModal(modalConfirmAccountUpdate)" style="margin-left: 87px;">Salvare date&nbsp;&nbsp;<mat-icon>edit</mat-icon></button>
       <ng-template #modalConfirmAccountUpdate let-modal>
           <div class="modal-body">
-              The account was updated
+              Contul a fost actualizat!
           </div>
       </ng-template>
     </mat-card-actions>
-    
+   
 </mat-card>
-
