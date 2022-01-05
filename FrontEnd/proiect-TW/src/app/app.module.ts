@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatPaginatorModule} from '@angular/material/paginator'; 
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,7 +44,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatListModule,
     MatSliderModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule, 
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

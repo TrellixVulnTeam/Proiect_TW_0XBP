@@ -131,14 +131,10 @@
             <div class="modal-body">
               <form [formGroup]="addForm">
                 <div style="margin-bottom: 20px;">
-                  <label for="type" style="margin-top: 10px;">
+                  <label for="type" style="margin-bottom: 20px;">
                       Categorie
                       <mat-icon class="typeIcon">category</mat-icon>
                   </label>
-                  <!--<input type="text" formControlName="type" class="formAllign" [ngClass]="{ 'is-invalid': addCheck.type.errors }" />
-                  <div *ngIf="addCheck.type.errors" class="invalid-feedback">
-                    <div *ngIf="addCheck.type.errors.required">Type is required</div>
-                  </div>-->
                   <mat-form-field class="formAllign">
                     <mat-label>Categorie</mat-label>
                     <mat-select (selectionChange)="selectedType($event)">
@@ -197,10 +193,14 @@
                       URL
                       <mat-icon class="urlIcon">insert_link</mat-icon>
                   </label>
-                  <input type="text" formControlName="url" class="formAllign" [ngClass]="{ 'is-invalid': addCheck.url.errors }" />
-                  <div *ngIf="addCheck.url.errors" class="invalid-feedback">
-                    <div *ngIf="addCheck.url.errors.required">URL is required</div>
-                  </div>
+                  <mat-form-field class="formAllign">
+                    <mat-label>URL</mat-label>
+                    <mat-select (selectionChange)="selectedUrl($event)">
+                        <mat-option value="../assets/iphone.png">Iphone</mat-option>
+                        <mat-option value="../assets/masinuta.png">Masinuta</mat-option>
+                        <mat-option value="../assets/monitor.png">Monitor</mat-option>
+                    </mat-select>
+                  </mat-form-field>
                 </div>
               </form>
             </div>
@@ -234,15 +234,23 @@
                     <div *ngIf="updateCheck.id.errors.required">ID is required</div>
                   </div>
                 </div>
-                <div>
-                  <label for="type">
+                <div style="margin-bottom: 20px;">
+                  <label for="type" style="margin-bottom: 20px;">
                       Categorie
                       <mat-icon class="typeIcon">category</mat-icon>
                   </label>
-                  <input type="text" formControlName="type" class="formAllign" [ngClass]="{ 'is-invalid': updateCheck.type.errors }" />
-                  <div *ngIf="updateCheck.type.errors" class="invalid-feedback">
-                    <div *ngIf="updateCheck.type.errors.required">Type is required</div>
-                  </div>
+                  <mat-form-field class="formAllign">
+                    <mat-label>Categorie</mat-label>
+                    <mat-select (selectionChange)="selectedType($event)">
+                        <mat-option value="Imbracaminte">Imbracaminte</mat-option>
+                        <mat-option value="Jucarii">Jucarii</mat-option>
+                        <mat-option value="Cosmetice">Cosmetice</mat-option>
+                        <mat-option value="Carti">Carti</mat-option>
+                        <mat-option value="Gaming">Gaming</mat-option>
+                        <mat-option value="Telefoane">Telefoane</mat-option>
+                        <mat-option value="Laptopuri">Laptopuri</mat-option>
+                    </mat-select>
+                  </mat-form-field>
                 </div>
                 <div>
                     <label for="name">
@@ -289,10 +297,14 @@
                       URL
                       <mat-icon class="urlIcon">insert_link</mat-icon>
                   </label>
-                  <input type="text" formControlName="url" class="formAllign" [ngClass]="{ 'is-invalid': updateCheck.url.errors }" />
-                  <div *ngIf="updateCheck.url.errors" class="invalid-feedback">
-                    <div *ngIf="updateCheck.url.errors.required">URL is required</div>
-                  </div>
+                  <mat-form-field class="formAllign">
+                    <mat-label>URL</mat-label>
+                    <mat-select (selectionChange)="selectedUrl($event)">
+                        <mat-option value="../assets/iphone.png">Iphone</mat-option>
+                        <mat-option value="../assets/masinuta.png">Masinuta</mat-option>
+                        <mat-option value="../assets/monitor.png">Monitor</mat-option>
+                    </mat-select>
+                  </mat-form-field>
                 </div>
               </form>
             </div>
@@ -803,4 +815,3 @@
         </div>
     </div>
   </div>
-

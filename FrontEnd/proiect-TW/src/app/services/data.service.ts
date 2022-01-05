@@ -11,7 +11,7 @@ import { Administrator } from '../classes/administrator';
 export class DataService {
   itemUrl = 'http://localhost:8080/item';
   customerUrl = 'http://localhost:8080/customer';
-  adminUrl = 'http://localhost:8080/admin';
+  adminUrl = 'http://localhost:8080/administrator';
 
   constructor(private http: HttpClient) { }
 
@@ -45,8 +45,13 @@ export class DataService {
     return this.http.post<any>(this.customerUrl, customer);
   }
 
-  updateAccount(id: number, account: Customer): Observable<any>{
+  updateCustomer(id: number, account: Customer): Observable<any>{
     const url = `${this.customerUrl}/${id}`;
+    return this.http.put(url, account);
+  }
+
+  updateAdministrator(id: number, account: Administrator): Observable<any>{
+    const url = `${this.adminUrl}/${id}`;
     return this.http.put(url, account);
   }
 

@@ -8,6 +8,7 @@ import { Customer } from '../classes/customer';
 import { DataService } from '../services/data.service';
 import { CommunicationService } from '../services/communication.service';
 import { Item } from '../classes/item';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-home',
@@ -38,7 +39,7 @@ export class HomeComponent implements OnInit {
   public country: string = "";
   public zipcode: number = 0;
   public hide: boolean = true;
-  public admin: Administrator = new Administrator(1, "Popescu", "Ion", "PopescuIon23", "admin@gmail.com", "adminpass", "Strada 1", "Timisoara", "Romania", 30166, "0721001000", "0256100100");
+  public admin: Administrator[] = [new Administrator(1, "Popescu", "Ion", "PopescuIon23", "admin@gmail.com", "adminpass", "Strada 1", "Timisoara", "Romania", 30166, "0721001000", "0256100100")];
   public customers: Customer[] = [new Customer(1, "Mihaescu", "Sorina", "Sorina00", "customer@gmail.com", "customerpass", "Strada 2", "Cluj", "Romania", 400058)];
   public receivedAdmin: Administrator = new Administrator(0, "", "", "", "", "", "", "", "", 0, "", "");
   public receivedCustomer: Customer = new Customer(0, "", "", "", "", "", "", "", "", 0);
@@ -68,6 +69,16 @@ export class HomeComponent implements OnInit {
     }
     this.checkRole();
     this.getItems();
+    this.dataService.getAdmins().subscribe(
+      (response: Administrator[]) => {
+        this.admin = response;
+      }
+    );
+    this.dataService.getCustomers().subscribe(
+      (response: Customer[]) => {
+        this.customers = response;
+      }
+    )
   }
 
   getItems(){
@@ -119,17 +130,14 @@ export class HomeComponent implements OnInit {
     price: ['0', Validators.required],
     inStock: ['0', Validators.required],
     manufacturer: ['', Validators.required],
-    url: ['', Validators.required]
   })
 
   updateForm = this.formBuilder.group({
     id: ['1', Validators.required],
-    type: ['', Validators.required],
     name: ['', Validators.required],
     price: ['0', Validators.required],
     inStock: ['0', Validators.required],
     manufacturer: ['', Validators.required],
-    url: ['', Validators.required]
   })
 
   newAccountForm = this.formBuilder.group({
@@ -170,7 +178,7 @@ export class HomeComponent implements OnInit {
     this.price = this.addForm.get('price')!.value;
     this.inStock = this.addForm.get('inStock')!.value;
     this.manufacturer = this.addForm.get('manufacturer')!.value;
-    this.url = "../assets/" + this.addForm.get('url')!.value;
+    //this.url = "../assets/" + this.addForm.get('url')!.value;
     this.dataService.addItem(new Item(0, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url)).subscribe();
     this.getItems();
   }
@@ -180,7 +188,6 @@ export class HomeComponent implements OnInit {
       return;
     }
     this.id = this.updateForm.get('id')!.value;
-    this.type = this.updateForm.get('type')!.value;
     this.name = this.updateForm.get('name')!.value;
     this.price = this.updateForm.get('price')!.value;
     this.inStock = this.updateForm.get('inStock')!.value;
@@ -196,7 +203,7 @@ export class HomeComponent implements OnInit {
     }
     this.id = this.newAccountForm.get('id')!.value;
     this.email = this.newAccountForm.get('email')!.value;
-    this.password = this.newAccountForm.get('password')!.value;
+    this.password = Md5.hashStr(this.newAccountForm.get('password')!.value);
     this.firstName = this.newAccountForm.get('firstName')!.value;
     this.lastName = this.newAccountForm.get('lastName')!.value;
     this.username = this.newAccountForm.get('username')!.value;
@@ -213,24 +220,24 @@ export class HomeComponent implements OnInit {
     }
     this.email = this.loginForm.get('email')!.value;
     this.password = this.loginForm.get('password')!.value;
-    if(this.email == this.admin.email && this.password == this.admin.password){
-      this.loggedIn = true;
-      this.role = "admin";
-      this.checkRole();
-      this.communicationService.sendAdmin(this.admin);
-      this.communicationService.sendCustomer(new Customer(0, "", "", "", "", "", "", "", "", 0));
-    }
-    else{
-      this.customers.forEach(customer => {
-        if(this.email == customer.email && this.password == customer.password){
-          this.loggedIn = true;
-          this.role = "customer";
-          this.checkRole();
-          this.communicationService.sendCustomer(customer);
-          this.communicationService.sendAdmin(new Administrator(0, "", "", "", "", "", "", "", "", 0, "", ""));
-        }
-      });
-    }
+    this.admin.forEach(administrator => {
+      if(this.email == administrator.email && Md5.hashStr(this.password) == administrator.password){
+        this.loggedIn = true;
+        this.role = "admin";
+        this.checkRole();
+        this.communicationService.sendAdmin(administrator);
+        this.communicationService.sendCustomer(new Customer(0, "", "", "", "", "", "", "", "", 0));
+      }
+    });
+    this.customers.forEach(customer => {
+      if(this.email == customer.email && Md5.hashStr(this.password) == customer.password){
+        this.loggedIn = true;
+        this.role = "customer";
+        this.checkRole();
+        this.communicationService.sendCustomer(customer);
+        this.communicationService.sendAdmin(new Administrator(0, "", "", "", "", "", "", "", "", 0, "", ""));
+      }
+    });
   }
 
   onBuy(element: Item){
@@ -328,6 +335,10 @@ export class HomeComponent implements OnInit {
 
   selectedType(event: MatSelectChange){
     this.type = event.value;
+  }
+
+  selectedUrl(event: MatSelectChange){
+    this.url = event.value;
   }
 
 }

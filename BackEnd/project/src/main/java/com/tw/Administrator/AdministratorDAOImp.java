@@ -42,7 +42,6 @@ public class AdministratorDAOImp implements AdministratorDAO {
         repository.save(administrator);
     }
 
-    @Override
     public void updateAdministrator(int id, Administrator administrator) {
         Administrator i = this.getAdministrator(id);
         i.setId(administrator.id);
