@@ -155,7 +155,7 @@
 }
 
 .product-action-style {
-    background-color: #fff;
+    background-color:#ffcccc;
     box-shadow: 0 0 8px 1.7px rgba(0, 0, 0, 0.06);
     display: inline-block;
     padding: 16px 2px 12px;
@@ -170,6 +170,7 @@
 }
 
 .product-action-style>a.action-plus {
+    
     font-size: 18px
 }
 
@@ -179,6 +180,8 @@
 }
 
 .detailsButton{
+    /*color: #9900CC;*/
+    color: #383838;
     font-size: 17px;
 }
 
@@ -189,6 +192,7 @@
 .tagIcon{
     width: 20px;
 }
+
 .modal-footer{
   background-image: url("../profile/fond.JPG");
   height: 100%;
