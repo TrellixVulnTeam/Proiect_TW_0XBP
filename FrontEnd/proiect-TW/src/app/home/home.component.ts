@@ -137,11 +137,10 @@ export class HomeComponent implements OnInit {
     name: ['', Validators.required],
     price: ['0', Validators.required],
     inStock: ['0', Validators.required],
-    manufacturer: ['', Validators.required],
+    manufacturer: ['', Validators.required]
   })
 
   newAccountForm = this.formBuilder.group({
-    id: ['1', Validators.required],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     username: ['', Validators.required],
@@ -178,7 +177,6 @@ export class HomeComponent implements OnInit {
     this.price = this.addForm.get('price')!.value;
     this.inStock = this.addForm.get('inStock')!.value;
     this.manufacturer = this.addForm.get('manufacturer')!.value;
-    //this.url = "../assets/" + this.addForm.get('url')!.value;
     this.dataService.addItem(new Item(0, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url)).subscribe();
     this.getItems();
   }
@@ -192,7 +190,6 @@ export class HomeComponent implements OnInit {
     this.price = this.updateForm.get('price')!.value;
     this.inStock = this.updateForm.get('inStock')!.value;
     this.manufacturer = this.updateForm.get('manufacturer')!.value;
-    this.url = this.updateForm.get('url')!.value;
     this.dataService.updateItem(this.id, new Item(this.id, this.type, this.name, this.price, this.inStock, this.manufacturer, this.url)).subscribe();
     this.getItems();
   }
@@ -201,7 +198,6 @@ export class HomeComponent implements OnInit {
     if (this.newAccountForm.invalid) {
       return;
     }
-    this.id = this.newAccountForm.get('id')!.value;
     this.email = this.newAccountForm.get('email')!.value;
     this.password = Md5.hashStr(this.newAccountForm.get('password')!.value);
     this.firstName = this.newAccountForm.get('firstName')!.value;
@@ -211,7 +207,9 @@ export class HomeComponent implements OnInit {
     this.city = this.newAccountForm.get('city')!.value;
     this.country = this.newAccountForm.get('country')!.value;
     this.zipcode = this.newAccountForm.get('zipcode')!.value;
-    this.customers.push(new Customer(this.id, this.firstName, this.lastName, this.username, this.email, this.password, this.address, this.city, this.country, this.zipcode));
+    var newCustomer = new Customer(0, this.firstName, this.lastName, this.username, this.email, this.password, this.address, this.city, this.country, this.zipcode);
+    this.customers.push(newCustomer);
+    this.dataService.addCustomer(newCustomer).subscribe();
   }
 
   onLogin(){

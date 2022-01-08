@@ -96,7 +96,7 @@ public interface Controller{
             @ApiResponse(responseCode = "201", description = "The customer was added", content = {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = Customer.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content) })
-    Customer addClass(Customer customer);
+    Customer addCustomer(Customer customer);
 
     @Operation(summary = "Update by Id")
     @ApiResponses(value = {

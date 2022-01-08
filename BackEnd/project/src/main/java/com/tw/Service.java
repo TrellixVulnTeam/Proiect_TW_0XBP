@@ -100,7 +100,7 @@ public class Service implements Controller {
 
     @PostMapping("/customer")
     @ResponseStatus(HttpStatus.CREATED)
-    public Customer addClass(@RequestBody Customer customer) {
+    public Customer addCustomer(@RequestBody Customer customer) {
         customerDao.addCustomer(customer);
         return customer;
     }

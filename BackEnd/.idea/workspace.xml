@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d96fdbf3-ef13-4d23-8d2a-e4de82b67b4b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Administrator/AdministratorDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Administrator/AdministratorDAOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,31 +123,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/project/src/main/java/com/tw/Service.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/project/src/main/java/com/tw/Service.java</url>
-          <line>111</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/project/src/main/java/com/tw/Administrator/AdministratorDAOImp.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/project/src/main/java/com/tw/Service.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

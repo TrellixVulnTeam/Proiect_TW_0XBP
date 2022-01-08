@@ -1,9 +1,6 @@
 package com.tw.Customer;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Customer")
@@ -11,6 +8,7 @@ public class Customer {
 
     @Id
     @Column(name = "Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
 
     @Column(name = "FIRSTNAME")
@@ -42,6 +40,18 @@ public class Customer {
 
     public Customer() {
 
+    }
+
+    public Customer(String firstName, String lastName, String username, String email, String password, String address, String city, String country, int zipcode) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.zipcode = zipcode;
     }
 
     public Customer(Customer customer){
