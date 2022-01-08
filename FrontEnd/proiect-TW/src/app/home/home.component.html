@@ -355,6 +355,7 @@
 
     <button mat-fab class="menuIcons" (click)="triggerModal(modalDataLogin)" *ngIf="!loggedIn"><mat-icon>login</mat-icon></button>
         <ng-template #modalDataLogin let-modal>
+          <div class="na">
             <div class="modal-header">
                 <h4 class="modal-title title" id="modal-basic-title">Intra in cont</h4>
                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -505,7 +506,9 @@
                       <button class = "btn" type = "submit" (click) = "onCreate(); modal.dismiss('Cross click')"><mat-icon class="icons">send</mat-icon></button>
                     </div>
                   </ng-template>
+                
             </div>
+          </div>
         </ng-template>
     <button mat-fab class="menuIcons" (click)="onLogout()" *ngIf="loggedIn"><mat-icon>logout</mat-icon></button>
 </mat-toolbar>
