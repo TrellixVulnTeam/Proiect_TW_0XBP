@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
   public cartItems: Item[] = [];
   public suma: number = 0;
   public images: string[] = ['../assets/1.jpg', '../assets/2.jpg'];
-  public filter: number = 0;
+  public filterPrice: number = 0;
   public items: Item[] = [];
 
   constructor(
@@ -327,8 +327,8 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  valueChanged(event: any) {
-    this.filter = event.value;
+  priceFilter(event: any) {
+    this.filterPrice = event.value;
   }
 
   selectedType(event: MatSelectChange){

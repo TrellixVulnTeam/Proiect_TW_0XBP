@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d96fdbf3-ef13-4d23-8d2a-e4de82b67b4b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Customer/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/com/tw/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com/tw/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SP-Lab/Lab13/sp" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />

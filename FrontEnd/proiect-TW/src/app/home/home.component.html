@@ -528,16 +528,15 @@
 </ngb-carousel>
 <br>
 
-<!-- filter 
 <div class="sliderPosition"><p>Filtreaza in functie de pret</p>
-  <mat-slider thumbLabel tickInterval="1000" step="50" min="0" max="1000" aria-label="units" class="sliderSize" (input)="valueChanged($event)"></mat-slider>
-</div> -->
+  <mat-slider thumbLabel tickInterval="1000" step="50" min="0" max="4500" aria-label="units" class="sliderSize" (input)="priceFilter($event)"></mat-slider>
+</div>
 
   <div class="container d-flex justify-content-center mt-100">
     <div class="row">
         <div class="col-md-3" *ngFor="let item of items"><div *ngIf="catalog==item.type || catalog==''">
             <div class="product-wrapper mb-45 text-center" *ngIf="searched=='' || item.name.toLowerCase().includes(searched.toLowerCase()) || searched.toLowerCase()==item.manufacturer || item.type==catalog">
-                <div class="product-img"> <img src="{{item.url}}" width="200px" height="200px"> <span class="text-center priceTag">{{item.price}} <button mat-icon-button class="tagIcon"><mat-icon>sell</mat-icon></button></span>
+                <div class="product-img" *ngIf="filterPrice >= item.price || filterPrice == 0"> <img src="{{item.url}}" width="200px" height="200px"> <span class="text-center priceTag">{{item.price}} <button mat-icon-button class="tagIcon"><mat-icon>sell</mat-icon></button></span>
                     <div class="product-action">
                         <div class="product-action-style"> <button mat-button (click) = "triggerModal(modalInfo)" class="detailsButton">Vezi detalii</button>
                           <ng-template #modalInfo let-modal>
